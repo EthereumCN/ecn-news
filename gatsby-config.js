@@ -5,12 +5,21 @@ module.exports = {
     author: `@gatsbyjs`,
   },
   plugins: [
+    `gatsby-plugin-chakra-ui`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
+      },
+    },
+    {
+      resolve: `gatsby-source-strapi`,
+      options: {
+        apiURL: "http://172.105.234.239:1337",
+        queryLimit: 1000, // Default to 100
+        contentTypes: [`categories`,`articles`,`expresses`], 
       },
     },
     `gatsby-transformer-sharp`,

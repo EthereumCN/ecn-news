@@ -1,7 +1,16 @@
-/**
- * Implement Gatsby's Browser APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/browser-apis/
- */
+import React from 'react'
+import { ThemeProvider, ColorModeProvider, CSSReset } from "@chakra-ui/core"
+import theme from "./theme/theme"
 
-// You can delete this file if you're not using it
+export const wrapRootElement = ({ element }) => {
+  return (
+    <ThemeProvider theme={theme}>
+       {typeof window !== "undefined" &&
+      window.localStorage.setItem("darkMode", false)}
+      <ColorModeProvider>
+        <CSSReset />
+        {element}
+      </ColorModeProvider>
+    </ThemeProvider>
+  )
+}
