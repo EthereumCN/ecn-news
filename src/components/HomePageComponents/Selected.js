@@ -45,7 +45,7 @@ const Selected = () => {
       <Item data={nodes[0]}  order="flex-start"/>
       </Box>
       {/* 第二栏 */}
-      <Box h="33.3%"> 
+      <Box h="33.3%" borderY="1px solid #fff"> 
         <Item data={nodes[1]} order="auto"/>
       </Box>
       {/* 第三栏 */}
