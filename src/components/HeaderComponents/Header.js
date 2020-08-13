@@ -18,7 +18,7 @@ const Header = () => {
     query MyQuery {
       file(relativePath: { eq: "eco_logo.png" }) {
         childImageSharp {
-          fixed(width: 100) {
+          fixed(width: 50) {
             ...GatsbyImageSharpFixed
           }
         }
@@ -33,7 +33,7 @@ const Header = () => {
   let navList = ["新闻资讯", "零时学院", "开发者门户", "生态漫游", "DApp"]
 
   return (
-    <Flex justifyContent="space-between" pt="2vh">
+    <Flex justifyContent="space-between" pt="3vh">
       {/* header左侧 */}
       <Flex justifyContent="space-between">
         {/* logo */}
@@ -44,10 +44,10 @@ const Header = () => {
             <ul style={{ listStyleType: "none" }}>
               {/* 循环 */}
               {navList.map((item, index) => (
-                <li style={{ float: "left", marginLeft: "3rem" }} key={index}>
+                <li style={{ float: "left", marginLeft: "5rem" }} key={index}>
                   <PseudoBox
                     _hover={{ color: "#ff2e00" }}
-                    fontSize="1.5rem"
+                    fontSize="1rem"
                     cursor="pointer"
                     color="#fff"
                   >
@@ -68,7 +68,7 @@ const Header = () => {
         <PseudoBox
           display={["inline", "inline", "inline", "none"]}
           _hover={{ color: "#ff2e00" }}
-          fontSize="2rem"
+          fontSize="1rem"
           cursor="pointer"
           mr="2rem"
           ref={btnRef}
@@ -92,7 +92,7 @@ const Header = () => {
                   <PseudoBox
                     cursor="pointer"
                     _active={{ color: "#ff2e00" }}
-                    fontSize="1.5rem"
+                    fontSize="1rem"
                     key={index}
                     textAlign="center"
                     py="0.4rem"

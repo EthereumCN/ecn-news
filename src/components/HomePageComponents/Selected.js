@@ -3,6 +3,8 @@ import { PseudoBox, Box } from "@chakra-ui/core"
 import Item from "./Item"
 import { useStaticQuery, graphql } from "gatsby"
 
+
+// 第一行右侧的三篇文章
 const Selected = () => {
   // the selected data
 
@@ -45,7 +47,7 @@ const Selected = () => {
       <Item data={nodes[0]}  order="flex-start"/>
       </Box>
       {/* 第二栏 */}
-      <Box h="33.3%" borderY="1px solid #fff"> 
+      <Box h="33.3%" borderY="1px solid #ccc"> 
         <Item data={nodes[1]} order="auto"/>
       </Box>
       {/* 第三栏 */}
