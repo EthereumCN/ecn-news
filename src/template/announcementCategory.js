@@ -17,7 +17,7 @@ const Category = (props) => {
         mt="2vw"
       >
         <Heading fontSize="2.5rem" fontFamily="NotoSansSC-Regular" color="#fff">
-          技术
+        宣发
         </Heading>
         <Text
           color="#969696"
@@ -26,7 +26,7 @@ const Category = (props) => {
           fontSize="1.2rem"
           fontFamily="NotoSansSC-Regular"
         >
-         eth最新技术页面
+         宣发最新技术页面
         </Text>
       </Box>
       <Divider w="100%" maxW={1018} borderColor="#ddd" mt="1vw" mx="auto" />
@@ -42,12 +42,12 @@ const Category = (props) => {
 export default Category
 
 export const pageQuery = graphql`
-  query technology($skip: Int!, $limit: Int!) {
+  query announcement($skip: Int!, $limit: Int!) {
     allStrapiArticles(
       skip: $skip
       limit: $limit
       sort: {fields: publishDate, order: DESC}
-      filter: { mainTag: { eq: "Technology" } }
+      filter: { mainTag: { eq: "Announcement" } }
     ) {
       nodes {
         id

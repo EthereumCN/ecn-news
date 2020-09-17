@@ -1,11 +1,10 @@
 import React from "react"
-import { Link } from "gatsby"
-import { Flex, Box } from "@chakra-ui/core"
-import Layout from "../components/layout"
 import SEO from "../components/seo"
+import { Flex, Box, Text } from "@chakra-ui/core"
+import Layout from "../components/layout"
 import { useStaticQuery, graphql } from "gatsby"
-import LastRow from '../components/HomePageComponents/LastRow'
-
+import LastRow from "../components/HomePageComponents/LastRow"
+import { Link } from "gatsby"
 // 第一栏
 import News from "../components/HomePageComponents/News"
 import Selected from "../components/HomePageComponents/Selected"
@@ -16,192 +15,381 @@ import Swiper from "../components/HomePageComponents/Swiper"
 // 第三栏
 import Eachrow from "../components/HomePageComponents/Eachrow"
 
-const IndexPage = () => {
+// 手机端第一栏
+import PhoneFirstRow from "../components/HomePageComponents/PhoneFirstRow"
 
+// 手机端最新
+import PhoneSecondRow from "../components/HomePageComponents/PhoneSecondRow"
+
+// 手机端按钮
+import PhoneButton from "../components/HomePageComponents/PhoneButton"
+
+// 各个栏目分配
+import PhoneEachRow from "../components/HomePageComponents/PhoneEachRow"
+
+// 底部
+import Footer from "../components/FooterComponents/Footer"
+
+const Index = () => {
   const data = useStaticQuery(graphql`
-  {
-    Ether2: allStrapiArticles(sort: {fields: publishDate, order: DESC}, limit: 3, filter: {mainTag: {eq: "Ether2"}}) {
-      nodes {
-        title
-        publishDate
-        summary                                                                                                                                                                                      
-        author
-        authorImg {
-          childImageSharp {
-            fixed(width: 32, height: 32) {
-              ...GatsbyImageSharpFixed
+    {
+      Ether2: allStrapiArticles(
+        sort: { fields: publishDate, order: DESC }
+        limit: 3
+        filter: { mainTag: { eq: "Ether2" } }
+      ) {
+        nodes {
+          id
+          title
+          mainTag
+          publishDate
+          summary
+          author
+          authorImg {
+            childImageSharp {
+              fixed(width: 32, height: 32) {
+                ...GatsbyImageSharpFixed
+              }
+            }
+          }
+          cover {
+            childImageSharp {
+              fluid {
+                ...GatsbyImageSharpFluid
+              }
             }
           }
         }
-        cover {
-          childImageSharp {
-            fluid {
-              ...GatsbyImageSharpFluid
+      }
+      Technology: allStrapiArticles(
+        sort: { fields: publishDate, order: DESC }
+        limit: 3
+        filter: { mainTag: { eq: "Technology" } }
+      ) {
+        nodes {
+          id
+          title
+          mainTag
+          publishDate
+          summary
+          author
+          authorImg {
+            childImageSharp {
+              fixed(width: 32, height: 32) {
+                ...GatsbyImageSharpFixed
+              }
+            }
+          }
+          cover {
+            childImageSharp {
+              fluid {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
+      }
+      Staking: allStrapiArticles(
+        sort: { fields: publishDate, order: DESC }
+        limit: 3
+        filter: { mainTag: { eq: "Staking" } }
+      ) {
+        nodes {
+          id
+          title
+          mainTag
+          publishDate
+          summary
+          author
+          authorImg {
+            childImageSharp {
+              fixed(width: 32, height: 32) {
+                ...GatsbyImageSharpFixed
+              }
+            }
+          }
+          cover {
+            childImageSharp {
+              fluid {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
+      }
+      DeFi: allStrapiArticles(
+        sort: { fields: publishDate, order: DESC }
+        limit: 3
+        filter: { mainTag: { eq: "DeFi" } }
+      ) {
+        nodes {
+          id
+          title
+          mainTag
+          publishDate
+          summary
+          author
+          authorImg {
+            childImageSharp {
+              fixed(width: 32, height: 32) {
+                ...GatsbyImageSharpFixed
+              }
+            }
+          }
+          cover {
+            childImageSharp {
+              fluid {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
+      }
+      Ether1: allStrapiArticles(
+        sort: { fields: publishDate, order: DESC }
+        limit: 3
+        filter: { mainTag: { eq: "Ether1" } }
+      ) {
+        nodes {
+          id
+          title
+          mainTag
+          publishDate
+          summary
+          author
+          authorImg {
+            childImageSharp {
+              fixed(width: 32, height: 32) {
+                ...GatsbyImageSharpFixed
+              }
+            }
+          }
+          cover {
+            childImageSharp {
+              fluid {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
+      }
+      Ecosystem: allStrapiArticles(
+        sort: { fields: publishDate, order: DESC }
+        limit: 3
+        filter: { mainTag: { eq: "Ecosystem" } }
+      ) {
+        nodes {
+          id
+          title
+          mainTag
+          publishDate
+          summary
+          author
+          authorImg {
+            childImageSharp {
+              fixed(width: 32, height: 32) {
+                ...GatsbyImageSharpFixed
+              }
+            }
+          }
+          cover {
+            childImageSharp {
+              fluid {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
+      }
+      Thinking: allStrapiArticles(
+        sort: { fields: publishDate, order: DESC }
+        limit: 3
+        filter: { mainTag: { eq: "Thinking" } }
+      ) {
+        nodes {
+          id
+          title
+          mainTag
+          publishDate
+          summary
+          author
+          authorImg {
+            childImageSharp {
+              fixed(width: 32, height: 32) {
+                ...GatsbyImageSharpFixed
+              }
+            }
+          }
+          cover {
+            childImageSharp {
+              fluid {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
+      }
+      Announcement: allStrapiArticles(
+        sort: { fields: publishDate, order: DESC }
+        limit: 3
+        filter: { mainTag: { eq: "Announcement" } }
+      ) {
+        nodes {
+          id
+          title
+          mainTag
+          publishDate
+          summary
+          author
+          authorImg {
+            childImageSharp {
+              fixed(width: 32, height: 32) {
+                ...GatsbyImageSharpFixed
+              }
+            }
+          }
+          cover {
+            childImageSharp {
+              fluid {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
+      }
+      Activity: allStrapiArticles(
+        sort: { fields: publishDate, order: DESC }
+        limit: 3
+        filter: { mainTag: { eq: "Activity" } }
+      ) {
+        nodes {
+          id
+          title
+          mainTag
+          publishDate
+          summary
+          author
+          authorImg {
+            childImageSharp {
+              fixed(width: 32, height: 32) {
+                ...GatsbyImageSharpFixed
+              }
+            }
+          }
+          cover {
+            childImageSharp {
+              fluid {
+                ...GatsbyImageSharpFluid
+              }
             }
           }
         }
       }
     }
-    Technology: allStrapiArticles(sort: {fields: publishDate, order: DESC}, limit: 3, filter: {mainTag: {eq: "Technology"}}) {
-      nodes {
-        title
-        publishDate
-        summary
-        author
-        authorImg {
-          childImageSharp {
-            fixed(width: 32, height: 32) {
-              ...GatsbyImageSharpFixed
-            }
-          }
-        }
-        cover {
-          childImageSharp {
-            fluid {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-      }
-    }
-    Staking: allStrapiArticles(sort: {fields: publishDate, order: DESC}, limit: 3, filter: {mainTag: {eq: "Staking"}}) {
-      nodes {
-        title
-        publishDate
-        summary
-        author
-        authorImg {
-          childImageSharp {
-            fixed(width: 32, height: 32) {
-              ...GatsbyImageSharpFixed
-            }
-          }
-        }
-        cover {
-          childImageSharp {
-            fluid {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-      }
-    }
-    DeFi: allStrapiArticles(sort: {fields: publishDate, order: DESC}, limit: 3, filter: {mainTag: {eq: "DeFi"}}) {
-      nodes {
-        title
-        publishDate
-        summary
-        author
-        authorImg {
-          childImageSharp {
-            fixed(width: 32, height: 32) {
-              ...GatsbyImageSharpFixed
-            }
-          }
-        }
-        cover {
-          childImageSharp {
-            fluid {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-      }
-    }
-    Ether1: allStrapiArticles(sort: {fields: publishDate, order: DESC}, limit: 3, filter: {mainTag: {eq: "Ether1"}}) {
-      nodes {
-        title
-        publishDate
-        summary
-        author
-        authorImg {
-          childImageSharp {
-            fixed(width: 32, height: 32) {
-              ...GatsbyImageSharpFixed
-            }
-          }
-        }
-        cover {
-          childImageSharp {
-            fluid {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-      }
-    }
-    Ecosystem: allStrapiArticles(sort: {fields: publishDate, order: DESC}, limit: 3, filter: {mainTag: {eq: "Ecosystem"}}) {
-      nodes {
-        title
-        publishDate
-        summary
-        author
-        authorImg {
-          childImageSharp {
-            fixed(width: 32, height: 32) {
-              ...GatsbyImageSharpFixed
-            }
-          }
-        }
-        cover {
-          childImageSharp {
-            fluid {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-      }
-    }
-  }
-`)
- 
+  `)
 
   let Ether2 = data.Ether2.nodes
   let Technology = data.Technology.nodes
   let Staking = data.Staking.nodes
   let DeFi = data.DeFi.nodes
-  let Ether1 = data.Ether1.nodes 
+  let Ether1 = data.Ether1.nodes
   let Ecosystem = data.Ecosystem.nodes
+  let Thinking = data.Thinking.nodes
+  let Announcement = data.Announcement.nodes
+  let Activity = data.Activity.nodes
 
   return (
     <Layout>
       <SEO title="以太坊中文网,以太坊资讯" />
-      {/* 第一栏 */}
-      <Flex mt="6rem" flexWrap="wrap" justifyContent="space-between">
-        <News />
-        <Selected />
-      </Flex>
-      {/* 第二栏 */}
-      <Box
-        backgroundColor="#fff"
-        w={["100%", "100%", "100%", "70%"]}
-        margin="0 auto"
-        mt={["2rem", "2rem", "2rem", "8rem"]}
-      >
-        <Swiper />
-      </Box>
-      {/* 第三栏 */}
-      <Eachrow data={Ether2} rowName="ETH 2.0" />
 
-      {/* 第四栏 */}
-      <Eachrow data={Technology} rowName="技术" />
-      {/* 第五栏 */}
-      <Eachrow data={Staking} rowName="Staking" />
-      {/* 第六栏 */}
-      <Eachrow data={DeFi} rowName="DeFi" />
-      {/* 第七栏 */}
-      <Eachrow data={Ether1} rowName="ETH 1.X" />
-      {/* 第八栏 */}
-      <Eachrow data={Ecosystem} rowName="生态" />
+      {/* pc端 */}
+      <Box display={["none", "none", "inline", "inline"]}>
+        {/* 第一栏 */}
+        <Flex mt="6rem" flexWrap="wrap" justifyContent="space-between">
+          <News />
+          <Selected />
+        </Flex>
 
-      {/* 第九栏目 */}
-      <LastRow />
-
-      {/* last */}
-      <Box mb="2rem" h="10rem">
-        ETH China
+        {/* 第二栏 */}
+        <Box
+          backgroundColor="#fff"
+          w={["100%", "100%", "100%", "70%"]}
+          margin="0 auto"
+          mt={["2rem", "2rem", "2rem", "8rem"]}
+        >
+          <Swiper />
         </Box>
+        {/* 第三栏 */}
+        <Eachrow data={Ether2} rowName="ETH 2.0" />
+        {/* 第四栏 */}
+        <Eachrow data={Technology} rowName="技术" />
+        {/* 第五栏 */}
+        <Eachrow data={Staking} rowName="Staking" />
+        {/* 第六栏 */}
+        <Eachrow data={DeFi} rowName="DeFi" />
+        {/* 第七栏 */}
+        <Eachrow data={Ether1} rowName="ETH 1.X" />
+        {/* 第八栏 */}
+        <Eachrow data={Ecosystem} rowName="生态" />
+        {/* 第九栏目 */}
+        <LastRow />
+      </Box>
+
+      {/* 手机端 */}
+      <Box display={["inline", "inline", "none", "none"]}>
+        <PhoneFirstRow />
+        <PhoneSecondRow />
+
+        {/* 第一个导航按钮 */}
+        <Link to="Ether2">
+          <PhoneButton color="red" value="ETH 2.0" />
+        </Link>
+        <PhoneEachRow data={Ether2[0]} />
+
+        <Link to="Technology">
+          <PhoneButton color="yellow" value="技术" />
+        </Link>
+        <PhoneEachRow data={Technology[0]} />
+
+        <Link to="Staking">
+          <PhoneButton color="blue" value="Staking" />
+        </Link>
+        <PhoneEachRow data={Staking[0]} />
+
+        <Link to="DeFi">
+          <PhoneButton color="green" value="DeFi" />
+        </Link>
+        <PhoneEachRow data={DeFi[0]} />
+
+        <Link to="Ether1">
+          <PhoneButton color="purple" value="ETH 1.X" />
+        </Link>
+        <PhoneEachRow data={Ether1[0]} />
+
+        <Link to="Ecosystem">
+          <PhoneButton color="blue" value="生态" />
+        </Link>
+        <PhoneEachRow data={Ecosystem[0]} />
+
+        <Link to="Thinking">
+          <PhoneButton color="pink" value="思辨" />
+        </Link>
+        <PhoneEachRow data={Thinking[0]} />
+
+        <Link to="Announcement">
+          <PhoneButton color="purple" value="通告" />
+        </Link>
+        <PhoneEachRow data={Announcement[0]} />
+
+        <Link to="Activity">
+          <PhoneButton color="orange" value="活动" />
+        </Link>
+        <PhoneEachRow data={Activity[0]} />
+      </Box>
+
+      <Footer />
     </Layout>
   )
 }
-export default IndexPage
+
+export default Index

@@ -6,13 +6,12 @@ import Img from "gatsby-image"
 const Eachrowitem = ({ data }) => {
   return (
     <PseudoBox
-      w={["100%", "100%", "100%", "31%"]}
+      w={["100%", "100%", "31%", "31%"]}
       mx="auto"
       mb="2vw"
       pb="2vw"
       _hover={{ color: " #6873e5" }}
     >
-
       {/* 图片 */}
       <PseudoBox
         w="100%"
@@ -23,6 +22,7 @@ const Eachrowitem = ({ data }) => {
         <Img fluid={data.cover.childImageSharp.fluid} />
       </PseudoBox>
       {/* 描述 */}
+      <Link to={data.id}>
       <Box px={["5vw", 0, 0, 0]}>
         <PseudoBox
           _hover={{ color: " #6873e5" }}
@@ -76,7 +76,9 @@ const Eachrowitem = ({ data }) => {
         </Stack>
       </Box>
       {/* </Link> */}
+      </Link>
     </PseudoBox>
+
   )
 }
 

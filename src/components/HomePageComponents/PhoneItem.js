@@ -6,9 +6,11 @@ import { Link } from "gatsby"
 const Item = ({ data,order }) => {
   return (
     <Link to={data.id}>  
-    <PseudoBox color="white" cursor="pointer" _hover={{ color: " #ff2e00 " }} h="100%" pr="2rem">
+    <PseudoBox color="white" cursor="pointer" _hover={{ color: " #ff2e00 " }} h="100%" >
       <Flex justifyContent="space-between" minH="100%" alignItems="center">
-        <Box w="60%" alignSelf={order}> 
+        <Box w="100%" alignSelf={order}> 
+
+          
           {/* tag     */}
           <Heading
             as="h2"
@@ -27,13 +29,17 @@ const Item = ({ data,order }) => {
             {data.title}
           </Heading>
 
+        {/*  cover */}
+          
+        <Box w="100%"  alignSelf={order} mt="3rem">
+          <Img fluid={data.cover.childImageSharp.fluid} />
+        </Box>
+
           {/* summary */}
           <Text color="#ccc" pt="1rem" fontSize="1rem" >{data.summary}</Text>
         </Box>
         {/* right side */}
-        <Box w="30%"  alignSelf={order}>
-          <Img fluid={data.cover.childImageSharp.fluid} />
-        </Box>
+
       </Flex>
     </PseudoBox>
     </Link>

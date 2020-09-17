@@ -59,7 +59,7 @@ const Article = ({ data }) => {
         </Stack>
 
         <ReactMarkdown source={post.content} className="content" escapeHtml={false}/>
-        {/* {console.log(post.content)} */}
+
 
         <Divider />
       </Box>

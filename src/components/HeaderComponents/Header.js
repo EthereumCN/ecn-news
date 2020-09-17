@@ -11,6 +11,7 @@ import {
 } from "@chakra-ui/core"
 import Img from "gatsby-image"
 import { useStaticQuery, graphql } from "gatsby"
+import { Link } from "gatsby"
 
 const Header = () => {
   // local src 提取
@@ -30,7 +31,17 @@ const Header = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const btnRef = React.useRef()
 
-  let navList = ["新闻资讯", "零时学院", "开发者门户", "生态漫游", "DApp"]
+  // let navList = ["新闻资讯", "零时学院", "开发者门户", "生态漫游", "DApp"]
+
+  // let navLink = ["/","c0llege","develop","ecosystem"]
+
+  let navList = [
+    { name: "新闻资讯", link: "/" },
+    { name: "零时学院", link: "/c0llege" },
+    { name: "开发者门户", link: "/develop" },
+    { name: "生态漫游", link: "/ecosystem" },
+    { name: "DApp", link: "/" },
+  ]
 
   return (
     <Flex justifyContent="space-between" pt="3vh">
@@ -51,7 +62,7 @@ const Header = () => {
                     cursor="pointer"
                     color="#fff"
                   >
-                    {item}
+                    <Link to={item.link}>{item.name}</Link>
                   </PseudoBox>
                 </li>
               ))}
@@ -97,7 +108,9 @@ const Header = () => {
                     textAlign="center"
                     py="0.4rem"
                   >
-                    {item}
+                    <Link to={item.link}>
+                    {item.name}
+                    </Link>
                   </PseudoBox>
                 ))}
               </DrawerBody>

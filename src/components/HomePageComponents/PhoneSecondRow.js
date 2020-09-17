@@ -1,12 +1,9 @@
 import React from "react"
 import { PseudoBox, Box } from "@chakra-ui/core"
-import Item from "./Item"
+import Item from "./PhoneItem"
 import { useStaticQuery, graphql } from "gatsby"
 
-
-// 第一行右侧的三篇文章
-const Selected = () => {
-  // the selected data
+const PhoneSecondRow = () => {
 
   const data = useStaticQuery(graphql`
     {
@@ -35,28 +32,27 @@ const Selected = () => {
   let { nodes } = data.allStrapiArticles
 
   return (
-    // container
     <PseudoBox
-      w={["100%", "100%", "48%", "48%"]}
+      mt="4rem"
       minH="100%"
       display="flex"
       flexDir="column"
     >
       {/* {console.log(nodes)} */}
       {/* 第一栏 */}
-      <Box h="33.3%"> 
-      <Item data={nodes[0]}  order="flex-start"/>
-      </Box>
+      <Box h="33.3%" paddingY="2rem">
+        <Item data={nodes[0]} order="flex-start" />
+      </Box >
       {/* 第二栏 */}
-      <Box h="33.3%" borderY="1px solid #ccc"> 
-        <Item data={nodes[1]} order="auto"/>
+      <Box paddingY="2rem" h="33.3%" borderY="1px solid #ccc">
+        <Item data={nodes[1]} order="auto" />
       </Box>
       {/* 第三栏 */}
-      <Box h="33.3%"> 
-      <Item data={nodes[2]} order="flex-end"/>
+      <Box paddingY="2rem" h="33.3%">
+        <Item data={nodes[2]} order="flex-end" />
       </Box>
     </PseudoBox>
   )
 }
 
-export default Selected
+export default PhoneSecondRow

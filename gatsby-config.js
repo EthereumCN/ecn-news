@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `欢迎来带以太坊中国`,
+    description: `在这里你可以学到很多`,
+    author: `@ECN`,
   },
   plugins: [
     `gatsby-plugin-chakra-ui`,
@@ -20,7 +20,7 @@ module.exports = {
       options: {
         apiURL: "http://172.105.234.239:1337",
         queryLimit: 1000, // Default to 100
-        contentTypes: [`categories`,`articles`,`expresses`], 
+        contentTypes: [`categories`,`articles`,`expresses`,`videos`,`calendars`], 
       },
     },
     `gatsby-transformer-sharp`,
