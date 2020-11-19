@@ -1,7 +1,5 @@
 const path = require(`path`)
-const { paginate } = require('gatsby-awesome-pagination')
-
-
+const { paginate } = require("gatsby-awesome-pagination")
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
@@ -10,11 +8,14 @@ exports.createPages = ({ graphql, actions }) => {
   const ether2Category = path.resolve(`src/template/ether2Category.js`)
   const ether1Category = path.resolve(`src/template/ether1Category.js`)
   const stakingCategory = path.resolve(`src/template/stakingCategory.js`)
-  const ecosystemCategory = path.resolve(`src/template/stakingCategory.js`)
-  const announcementCategory = path.resolve(`src/template/announcementCategory.js`)
+  const ecosystemCategory = path.resolve(`src/template/ecosystemCategory.js`)
+  const announcementCategory = path.resolve(
+    `src/template/announcementCategory.js`
+  )
   const activityCategory = path.resolve(`src/template/activityCategory.js`)
   const thinkingCategory = path.resolve(`src/template/thinkingCategory.js`)
   const defiCategory = path.resolve(`src/template/defiCategory.js`)
+  const authorCategory = path.resolve(`src/template/authorCategory.js`)
   // Query for markdown nodes to use in creating pages.
   // You can query for whatever data you want to create pages for e.g.
   // products, portfolio items, landing pages, etc.
@@ -24,63 +25,75 @@ exports.createPages = ({ graphql, actions }) => {
     articles: allStrapiArticles {
       nodes {
         id,
-        strapiId
+        strapiId,
+        title,
+        path
       }
     }
     defi: allStrapiArticles(filter: {mainTag: {eq: "DeFi"}}) {
       nodes {
         id,
-        strapiId
+        strapiId,
+        path
       }
     }
     thinking: allStrapiArticles(filter: {mainTag: {eq: "Thinking"}}) {
       nodes {
         id,
-        strapiId
+        strapiId,
+        path
       }
     }
     activity: allStrapiArticles(filter: {mainTag: {eq: "Activity"}}) {
       nodes {
         id,
-        strapiId
+        strapiId,
+        path
       }
     }
     announcement: allStrapiArticles(filter: {mainTag: {eq: "Announcement"}}) {
       nodes {
         id,
-        strapiId
+        strapiId,
+        path
       }
     }
     ecosystem: allStrapiArticles(filter: {mainTag: {eq: "Ecosystem"}}) {
       nodes {
         id,
-        strapiId
+        strapiId,
+        path
       }
     }
     staking: allStrapiArticles(filter: {mainTag: {eq: "Staking"}}) {
       nodes {
         id,
-        strapiId
+        strapiId,
+        path
       }
     }
     ether1: allStrapiArticles(filter: {mainTag: {eq: "Ether1"}}) {
       nodes {
         id,
-        strapiId
+        strapiId,
+        path
       }
     }
     ether2: allStrapiArticles(filter: {mainTag: {eq: "Ether2"}}) {
       nodes {
         id,
-        strapiId
+        strapiId,
+        path
       }
     }
     technology: allStrapiArticles(filter: {mainTag: {eq: "Technology"}}) {
       nodes {
         id,
-        strapiId
+        strapiId,
+        path
       }
     }
+
   }
   `).then(result => {
     if (result.errors) {
@@ -91,7 +104,7 @@ exports.createPages = ({ graphql, actions }) => {
     result.data.articles.nodes.forEach(post => {
       createPage({
         // Path for this page — required
-        path: post.id,
+        path: post.path,
         component: blogPostTemplate,
         context: {
           id: post.id,
@@ -99,11 +112,13 @@ exports.createPages = ({ graphql, actions }) => {
       })
     })
 
+
+
     paginate({
       createPage,
       items: result.data.defi.nodes,
       itemsPerPage: 5,
-      pathPrefix:  `/DeFi`,
+      pathPrefix: `/DeFi`,
       component: defiCategory,
     })
 
@@ -111,7 +126,7 @@ exports.createPages = ({ graphql, actions }) => {
       createPage,
       items: result.data.thinking.nodes,
       itemsPerPage: 5,
-      pathPrefix:  `/Thinking`,
+      pathPrefix: `/Thinking`,
       component: thinkingCategory,
     })
 
@@ -119,7 +134,7 @@ exports.createPages = ({ graphql, actions }) => {
       createPage,
       items: result.data.activity.nodes,
       itemsPerPage: 5,
-      pathPrefix:  `/Activity`,
+      pathPrefix: `/Activity`,
       component: activityCategory,
     })
 
@@ -127,7 +142,7 @@ exports.createPages = ({ graphql, actions }) => {
       createPage,
       items: result.data.announcement.nodes,
       itemsPerPage: 5,
-      pathPrefix:  `/Announcement`,
+      pathPrefix: `/Announcement`,
       component: announcementCategory,
     })
 
@@ -135,7 +150,7 @@ exports.createPages = ({ graphql, actions }) => {
       createPage,
       items: result.data.ecosystem.nodes,
       itemsPerPage: 5,
-      pathPrefix:  `/Ecosystem`,
+      pathPrefix: `/Ecosystem`,
       component: ecosystemCategory,
     })
 
@@ -143,7 +158,7 @@ exports.createPages = ({ graphql, actions }) => {
       createPage,
       items: result.data.staking.nodes,
       itemsPerPage: 5,
-      pathPrefix:  `/Staking`,
+      pathPrefix: `/Staking`,
       component: stakingCategory,
     })
 
@@ -151,7 +166,7 @@ exports.createPages = ({ graphql, actions }) => {
       createPage,
       items: result.data.ether1.nodes,
       itemsPerPage: 5,
-      pathPrefix:  `/Ether1`,
+      pathPrefix: `/Ether1`,
       component: ether1Category,
     })
 
@@ -159,16 +174,15 @@ exports.createPages = ({ graphql, actions }) => {
       createPage,
       items: result.data.ether2.nodes,
       itemsPerPage: 5,
-      pathPrefix:  `/Ether2`,
+      pathPrefix: `/Ether2`,
       component: ether2Category,
     })
-
 
     paginate({
       createPage,
       items: result.data.technology.nodes,
       itemsPerPage: 5,
-      pathPrefix:  `/Technology`,
+      pathPrefix: `/Technology`,
       component: technologyCategory,
     })
   })

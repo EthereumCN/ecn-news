@@ -10,6 +10,7 @@ const News = () => {
       allStrapiArticles(sort: { order: DESC, fields: publishDate }, limit: 1) {
         nodes {
           id
+          path
           title
           summary
           cover {
@@ -30,14 +31,14 @@ const News = () => {
   return (
   
     <Box w={["100%", "100%", "48%", "48%"]} color="white">
-        <Link to={"/"+news.id}>
+        <Link to={"/"+news.path}>
       {/* 最新tag     */}
-      <Heading as="h2" fontSize="0.9rem" color="#ff2e00">
+      <Heading as="h2" fontSize="0.9rem" color="#ee771c">
         最新
       </Heading>
-      <PseudoBox cursor="pointer" _hover={{ color: " #ff2e00 " }}>
+      <PseudoBox cursor="pointer" _hover={{ color: " #ee771c " }}>
         {/* title */}
-        <Heading as="h1" size="xl" pt="0.1rem">
+        <Heading as="h1" fontSize="2rem" pt="0.1rem">
           {news.title}
         </Heading>
         {/* summary */}
@@ -48,8 +49,8 @@ const News = () => {
       </Link>
       {/* 图片 */}
       <Box pt="1rem">
-      <Link to={"/"+news.id}>
-        <Img fluid={news.cover.childImageSharp.fluid} />
+      <Link to={"/"+news.path}>
+        <Img style={{borderRadius:"0.8rem"}} fluid={news.cover.childImageSharp.fluid} />
         </Link>
       </Box>
     </Box>

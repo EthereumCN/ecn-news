@@ -3,7 +3,6 @@ import { PseudoBox, Box } from "@chakra-ui/core"
 import Item from "./Item"
 import { useStaticQuery, graphql } from "gatsby"
 
-
 // 第一行右侧的三篇文章
 const Selected = () => {
   // the selected data
@@ -17,6 +16,8 @@ const Selected = () => {
       ) {
         nodes {
           id
+          chineseMainTag
+          path
           mainTag
           summary
           title
@@ -41,19 +42,20 @@ const Selected = () => {
       minH="100%"
       display="flex"
       flexDir="column"
+      justifyContent="space-between"
     >
       {/* {console.log(nodes)} */}
       {/* 第一栏 */}
-      <Box h="33.3%"> 
-      <Item data={nodes[0]}  order="flex-start"/>
+      <Box h="30%">
+        <Item data={nodes[0]} order="flex-start" />
       </Box>
       {/* 第二栏 */}
-      <Box h="33.3%" borderY="1px solid #ccc"> 
-        <Item data={nodes[1]} order="auto"/>
+      <Box h="40%" borderY="1px solid gray">
+        <Item data={nodes[1]} order="auto" />
       </Box>
       {/* 第三栏 */}
-      <Box h="33.3%"> 
-      <Item data={nodes[2]} order="flex-end"/>
+      <Box h="30%">
+        <Item data={nodes[2]} order="flex-end" />
       </Box>
     </PseudoBox>
   )

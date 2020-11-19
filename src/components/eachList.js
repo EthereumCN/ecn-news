@@ -8,12 +8,11 @@ import { Link } from "gatsby"
 const EachList = ({ value }) => {
   return (
     <>
-      <Link to={"/" + value.id}>
+      <Link to={"/" + value.path}>
         <PseudoBox
           w="100%"
           maxW={1080}
           mx="auto"
-          px="2vw"
           pt={["20px", "20px", "50px", "11vh"]}
           _hover={{ color: " #6873e5" }}
         >
@@ -30,14 +29,14 @@ const EachList = ({ value }) => {
               position="relative"
               display={["inline", "inline", "inline", "none"]}
             >
-              <Img fluid={value.cover.childImageSharp.fluid} />
+              <Img style={{borderRadius:"0.8rem"}} fluid={value.cover.childImageSharp.fluid} />
             </PseudoBox>
 
             <Box
               w={["100%", "100%", "100%", "45%"]}
               my="auto"
               px={["2vw", 0, 0, 0]}
-              ml={[0, 0, 0, "40px"]}
+              ml={[0, 0, 0, 0]}
               cursor="pointer"
             >
               <PseudoBox
@@ -98,7 +97,7 @@ const EachList = ({ value }) => {
               position="relative"
               display={["none", "none", "none", "inline"]}
             >
-              <Img fluid={value.cover.childImageSharp.fluid} />
+              <Img style={{borderRadius:"0.8rem"}} fluid={value.cover.childImageSharp.fluid} />
             </PseudoBox>
           </Flex>
         </PseudoBox>

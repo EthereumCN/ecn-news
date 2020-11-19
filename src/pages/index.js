@@ -1,6 +1,6 @@
 import React from "react"
-import SEO from "../components/seo"
-import { Flex, Box, Text } from "@chakra-ui/core"
+import SEO from 'react-seo-component'
+import { Flex, Box } from "@chakra-ui/core"
 import Layout from "../components/layout"
 import { useStaticQuery, graphql } from "gatsby"
 import LastRow from "../components/HomePageComponents/LastRow"
@@ -30,7 +30,12 @@ import PhoneEachRow from "../components/HomePageComponents/PhoneEachRow"
 // 底部
 import Footer from "../components/FooterComponents/Footer"
 
-const Index = () => {
+
+
+const Index = ( ) => {
+
+  // const {siteMetadata} = props.data.site
+
   const data = useStaticQuery(graphql`
     {
       Ether2: allStrapiArticles(
@@ -40,9 +45,11 @@ const Index = () => {
       ) {
         nodes {
           id
+          chineseMainTag
+          path
           title
           mainTag
-          publishDate
+          publishDate(formatString: "YYYY/MM/DD")
           summary
           author
           authorImg {
@@ -68,9 +75,11 @@ const Index = () => {
       ) {
         nodes {
           id
+          chineseMainTag
+          path
           title
           mainTag
-          publishDate
+          publishDate(formatString: "YYYY/MM/DD")
           summary
           author
           authorImg {
@@ -96,9 +105,11 @@ const Index = () => {
       ) {
         nodes {
           id
+          chineseMainTag
+          path
           title
           mainTag
-          publishDate
+          publishDate(formatString: "YYYY/MM/DD")
           summary
           author
           authorImg {
@@ -124,9 +135,11 @@ const Index = () => {
       ) {
         nodes {
           id
+          chineseMainTag
+          path
           title
           mainTag
-          publishDate
+          publishDate(formatString: "YYYY/MM/DD")
           summary
           author
           authorImg {
@@ -152,9 +165,11 @@ const Index = () => {
       ) {
         nodes {
           id
+          chineseMainTag
+          path
           title
           mainTag
-          publishDate
+          publishDate(formatString: "YYYY/MM/DD")
           summary
           author
           authorImg {
@@ -180,9 +195,11 @@ const Index = () => {
       ) {
         nodes {
           id
+          chineseMainTag
+          path
           title
           mainTag
-          publishDate
+          publishDate(formatString: "YYYY/MM/DD")
           summary
           author
           authorImg {
@@ -208,9 +225,11 @@ const Index = () => {
       ) {
         nodes {
           id
+          chineseMainTag
+          path
           title
           mainTag
-          publishDate
+          publishDate(formatString: "YYYY/MM/DD")
           summary
           author
           authorImg {
@@ -236,9 +255,11 @@ const Index = () => {
       ) {
         nodes {
           id
+          chineseMainTag
+          path
           title
           mainTag
-          publishDate
+          publishDate(formatString: "YYYY/MM/DD")
           summary
           author
           authorImg {
@@ -264,9 +285,11 @@ const Index = () => {
       ) {
         nodes {
           id
+          chineseMainTag
+          path
           title
           mainTag
-          publishDate
+          publishDate(formatString: "YYYY/MM/DD")
           summary
           author
           authorImg {
@@ -285,6 +308,18 @@ const Index = () => {
           }
         }
       }
+      site {
+        siteMetadata {
+          title
+          description
+          author
+          keywords
+          siteLanguage
+          siteLocale
+          siteUrl
+          twitterUsername
+        }
+      }
     }
   `)
 
@@ -300,8 +335,19 @@ const Index = () => {
 
   return (
     <Layout>
-      <SEO title="以太坊中文网,以太坊资讯" />
-
+     <SEO
+        title="首页"
+        titleTemplate={data.site.siteMetadata.title}
+        description={data.site.siteMetadata.description}
+        image={'https://ethereum.cn'}
+        pathname={'https://ethereum.cn'}
+        siteLanguage={data.site.siteMetadata.siteLanguage}
+        siteLocale={data.site.siteMetadata.siteLocale}
+        twitterUsername={data.site.siteMetadata.twitterUsername}
+        author={data.site.siteMetadata.author}
+        publishedDate={data.site.siteMetadata.lastBuildDate}
+        modifiedDate={new Date(Date.now()).toISOString()}
+      />
       {/* pc端 */}
       <Box display={["none", "none", "inline", "inline"]}>
         {/* 第一栏 */}
@@ -313,7 +359,7 @@ const Index = () => {
         {/* 第二栏 */}
         <Box
           backgroundColor="#fff"
-          w={["100%", "100%", "100%", "70%"]}
+          w={["100%", "100%", "100%", "75%"]}
           margin="0 auto"
           mt={["2rem", "2rem", "2rem", "8rem"]}
         >

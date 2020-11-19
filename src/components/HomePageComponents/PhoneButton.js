@@ -1,6 +1,6 @@
 import React from "react"
 import * as framerMotion from "framer-motion"
-import { Box, Heading, Text } from "@chakra-ui/core"
+import { Box,  Text } from "@chakra-ui/core"
 
 const PhoneButton = ({ color, value }) => {
   // Create a custom motion component from Box

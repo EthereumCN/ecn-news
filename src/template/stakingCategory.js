@@ -1,41 +1,53 @@
 import React from "react"
-import {Text,  Box, Heading,Divider } from "@chakra-ui/core"
+import {  Box, Heading,Divider } from "@chakra-ui/core"
 import SEO from "../components/seo"
 import EachList from "../components/eachList"
-
+import { graphql } from 'gatsby' 
+import Layout from "../components/layout"
+import  Paginate from '../components/Paginate'
 const Category = (props) => {
+  const {siteMetadata} = props.data.site
   return (
-    <Box >
-       <SEO title="技术" />
+    <Layout >
+           <SEO
+        title="Staking"
+        titleTemplate={siteMetadata.title}
+        description={siteMetadata.description}
+        image={'https://ethereum.cn'}
+        pathname={'https://ethereum.cn'+props.path}
+        siteLanguage={siteMetadata.siteLanguage}
+        siteLocale={siteMetadata.siteLocale}
+        twitterUsername={siteMetadata.twitterUsername}
+        author={siteMetadata.author}
+        publishedDate={siteMetadata.lastBuildDate}
+        modifiedDate={new Date(Date.now()).toISOString()}
+      />
       < Box mb="30vh">
       <Box
         w="100%"
         maxW={1080}
         mx="auto"
-        px="30px"
+       
         pt={["20px", "20px", "50px", "40px"]}
         mt="2vw"
       >
         <Heading fontSize="2.5rem" fontFamily="NotoSansSC-Regular" color="#fff">
         质押
         </Heading>
-        <Text
-          color="#969696"
-          mt="1.2vw"
-          fontWeight={500}
-          fontSize="1.2rem"
-          fontFamily="NotoSansSC-Regular"
-        >
-         质押最新技术页面
-        </Text>
+        <Divider w="100%"  borderColor="#ddd" mt="1vw" mx="auto" />
       </Box>
-      <Divider w="100%" maxW={1018} borderColor="#ddd" mt="1vw" mx="auto" />
+     
       {props.data.allStrapiArticles.nodes.map((value, index) => (
         <EachList value={value} key={index} />
       ))}
+
+<Box mt="6rem">
+  
+  <Paginate props={props}/>
+</Box>
       </Box>
   
-    </Box>
+    </Layout>
   )
 }
 
@@ -51,6 +63,7 @@ export const pageQuery = graphql`
     ) {
       nodes {
         id
+        path
         title
         author
         summary
@@ -69,6 +82,18 @@ export const pageQuery = graphql`
             }
           }
         }
+      }
+    }
+    site {
+      siteMetadata {
+        title
+        description
+        author
+        keywords
+        siteLanguage
+        siteLocale
+        siteUrl
+        twitterUsername
       }
     }
   }

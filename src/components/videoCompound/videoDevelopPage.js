@@ -7,9 +7,8 @@ import DialogTitle from "@material-ui/core/DialogTitle"
 import Paper from "@material-ui/core/Paper"
 import Draggable from "react-draggable"
 import BackgroundImage from "gatsby-background-image"
-import Img from "gatsby-image"
 import videoModule from "../videoCompound/videoDevelopPage.module.css"
-// import { AiOutlinePlayCircle } from "react-icons/ai";
+import { motion } from "framer-motion"
 
 function PaperComponent(props) {
   return (
@@ -33,6 +32,9 @@ const VideoDialog = ({ data }) => {
     setOpen(false)
   }
 
+    // 1. Create a custom motion component from Box
+    const MotionBox = motion.custom(Box)
+
   return (
     <div>
       <PseudoBox
@@ -50,14 +52,19 @@ const VideoDialog = ({ data }) => {
           fluid={data.cover.childImageSharp.fluid}
           backgroundColor={`#fff`}
         >
-          <Box
-           position="relative"
-            height="100%"
-            px={["5vw", 0, 0, 0]}
+           <Box
             style={{
               background:
                 "linear-gradient(rgba(38, 37, 90, 0) 0%, rgba(38, 37, 90, 0.8) 100%)",
             }}
+            height="100%"
+            w="100%"
+          >
+          <MotionBox
+           position="relative"
+           whileHover={{ scale: 0.97 }}
+            height="100%"
+            px={["5vw", 0, 0, 0]}
             w="100%"
           >
             {/* <AiOutlinePlayCircle style={{color:"white", fontSize:"5rem",position:"absolute",left:"1vw",bottom:"12vh"}}/> */}
@@ -90,6 +97,7 @@ const VideoDialog = ({ data }) => {
                 {data.title}
               </Heading>
             </PseudoBox>
+          </MotionBox>
           </Box>
         </BackgroundImage>
       </PseudoBox>

@@ -1,23 +1,45 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
-import SEO from "../components/seo"
+import {  graphql } from "gatsby"
+import SEO from 'react-seo-component'
 import {
   Box,
   Heading,
   Stack,
   Avatar,
   Text,
-  Divider,
-  Flex,
-  Image,
+  Divider
 } from "@chakra-ui/core"
-const ReactMarkdown = require("react-markdown")
-const Article = ({ data }) => {
-  const post = data.strapiArticles
 
+import Layout from "../components/layout"
+// 底部
+import Footer from "../components/FooterComponents/Footer"
+
+
+const ReactMarkdown = require("react-markdown")
+
+const Article = ({location, data }) => {
+  const post = data.strapiArticles
+  const {siteMetadata} = data.site
   return (
-    <Box>
-      <SEO title={post.title} />
+    <Layout>
+
+
+
+      <SEO
+        title={post.title}
+        titleTemplate={siteMetadata.title}
+        description={post.summary}
+        image={'https://ecnn.netlify.app'+post.cover.childImageSharp.resize.src}
+        pathname={'https://ecnn.netlify.app'+location.pathname}
+        article={true}
+        siteLanguage={siteMetadata.siteLanguage}
+        siteLocale={siteMetadata.siteLocale}
+        twitterUsername={siteMetadata.twitterUsername}
+        author={post.author}
+        publishedDate={post.publishDate}
+        modifiedDate={new Date(Date.now()).toISOString()}
+      />
+
       <Box
         w="100%"
         maxW={800}
@@ -53,8 +75,8 @@ const Article = ({ data }) => {
             name={post.author}
             src={post.authorImg.childImageSharp.fixed.src}
           />
-          <Text lineHeight="25px" fontSize="0.8rem" color="#fff">
-            {post.author}
+          <Text lineHeight="25px" fontSize="0.8rem" color="#fff" cursor="pointer">
+           {post.author}
           </Text>
         </Stack>
 
@@ -62,8 +84,9 @@ const Article = ({ data }) => {
 
 
         <Divider />
+          <Footer/>
       </Box>
-    </Box>
+    </Layout>
   )
 }
 
@@ -74,6 +97,7 @@ export const query = graphql`
     strapiArticles(id: { eq: $id }) {
       title
       summary
+      publishDate
       author
       authorImg {
         childImageSharp {
@@ -83,6 +107,25 @@ export const query = graphql`
         }
       }
       content
+      cover {
+        childImageSharp {
+          resize {
+            src
+          }
+        }
+      }
+    }
+    site {
+      siteMetadata {
+        title
+        description
+        author
+        keywords
+        siteLanguage
+        siteLocale
+        siteUrl
+        twitterUsername
+      }
     }
   }
 `

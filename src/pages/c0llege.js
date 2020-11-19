@@ -5,9 +5,8 @@ import {
   Heading,
   Text,
   Divider,
-  AspectRatioBox,
 } from "@chakra-ui/core"
-import SEO from "../components/seo"
+import SEO from 'react-seo-component'
 import { useStaticQuery, graphql } from "gatsby"
 import Layout from "../components/layout"
 // 引入video
@@ -15,10 +14,14 @@ import VideoDialog from "../components/videoCompound/videoDialog"
 // 底部
 import Footer from "../components/FooterComponents/Footer"
 
+
+
+
+
 const C0llege = () => {
   const data = useStaticQuery(graphql`
     {
-      allStrapiVideos(limit: 4, sort: { fields: date, order: DESC }) {
+      allStrapiCollegeVideos(limit: 4, sort: { fields: date, order: DESC }) {
         nodes {
           date
           title
@@ -32,12 +35,36 @@ const C0llege = () => {
           }
         }
       }
+      site {
+        siteMetadata {
+          title
+          description
+          author
+          keywords
+          siteLanguage
+          siteLocale
+          siteUrl
+          twitterUsername
+        }
+      }
     }
   `)
 
   return (
     <Layout>
-      <SEO title="零时学院" />
+      <SEO
+        title="零时学院"
+        titleTemplate={data.site.siteMetadata.title}
+        description={data.site.siteMetadata.description}
+        image={'https://ethereum.cn'}
+        pathname={'https://ethereum.cn/c0llege'}
+        siteLanguage={data.site.siteMetadata.siteLanguage}
+        siteLocale={data.site.siteMetadata.siteLocale}
+        twitterUsername={data.site.siteMetadata.twitterUsername}
+        author={data.site.siteMetadata.author}
+        publishedDate={data.site.siteMetadata.lastBuildDate}
+        modifiedDate={new Date(Date.now()).toISOString()}
+      />
       {/* title */}
       <Heading mt="5rem" mb="4rem" color="#fff" textAlign="center">
         零时学院
@@ -160,14 +187,14 @@ const C0llege = () => {
           <Box>
             {/* 第一行 */}
             <Flex justifyContent="space-between"  mt="3rem">
-              <VideoDialog data={data.allStrapiVideos.nodes[0]} />
-              <VideoDialog data={data.allStrapiVideos.nodes[1]} />
+              <VideoDialog data={data.allStrapiCollegeVideos.nodes[0]} />
+              <VideoDialog data={data.allStrapiCollegeVideos.nodes[1]} />
             </Flex>
 
             {/* 第二行 */}
             <Flex justifyContent="space-between"  mt="3rem">
-              <VideoDialog data={data.allStrapiVideos.nodes[2]} />
-              <VideoDialog data={data.allStrapiVideos.nodes[3]} />
+              <VideoDialog data={data.allStrapiCollegeVideos.nodes[2]} />
+              <VideoDialog data={data.allStrapiCollegeVideos.nodes[3]} />
             </Flex>
           </Box>
         </Box>
@@ -276,19 +303,19 @@ const C0llege = () => {
             </Box>
 
             <Box mt="2rem">
-              <VideoDialog data={data.allStrapiVideos.nodes[0]} />
+              <VideoDialog data={data.allStrapiCollegeVideos.nodes[0]} />
             </Box>
 
             <Box mt="2rem">
-              <VideoDialog data={data.allStrapiVideos.nodes[1]} />
+              <VideoDialog data={data.allStrapiCollegeVideos.nodes[1]} />
             </Box>
 
             <Box mt="2rem">
-              <VideoDialog data={data.allStrapiVideos.nodes[2]} />
+              <VideoDialog data={data.allStrapiCollegeVideos.nodes[2]} />
             </Box>
 
             <Box mt="2rem">
-              <VideoDialog data={data.allStrapiVideos.nodes[3]} />
+              <VideoDialog data={data.allStrapiCollegeVideos.nodes[3]} />
             </Box>
 
 

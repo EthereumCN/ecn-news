@@ -5,11 +5,11 @@ import { Box } from "@chakra-ui/core"
 
 const Layout = ({ children }) => {
   return (
-    <Box px="2vw">
+    <Box mx={['1rem','1rem','5rem','5rem']}>
       <Header />
       {children}
     </Box>
   )
-}
+} 
 
 export default Layout

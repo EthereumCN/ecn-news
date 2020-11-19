@@ -1,6 +1,6 @@
-import React, { useState } from "react"
-import { Flex, Box, Heading, Button, PseudoBox } from "@chakra-ui/core"
-import SEO from "../components/seo"
+import React from "react"
+import { Flex, Box, Heading,  PseudoBox } from "@chakra-ui/core"
+import SEO from 'react-seo-component'
 import buttom from "../components/buttom.module.css"
 import Layout from "../components/layout"
 import { useStaticQuery, graphql } from "gatsby"
@@ -11,11 +11,11 @@ import Footer from "../components/FooterComponents/Footer"
 
 const Develop = () => {
 
-  const [click, setCliock] = useState(true)
+
 
   const data = useStaticQuery(graphql`
     {
-      allStrapiVideos(limit: 4, sort: { fields: date, order: DESC }) {
+      allStrapiDeveloperVideos(limit: 4, sort: { fields: date, order: DESC }) {
         nodes {
           date
           title
@@ -29,12 +29,36 @@ const Develop = () => {
           }
         }
       }
+      site {
+        siteMetadata {
+          title
+          description
+          author
+          keywords
+          siteLanguage
+          siteLocale
+          siteUrl
+          twitterUsername
+        }
+      }
     }
   `)
 
   return (
     <Layout>
-      <SEO title="开发者门户" />
+    <SEO
+        title="开发者门户"
+        titleTemplate={data.site.siteMetadata.title}
+        description={data.site.siteMetadata.description}
+        image={'https://ethereum.cn'}
+        pathname={'https://ethereum.cn/develop'}
+        siteLanguage={data.site.siteMetadata.siteLanguage}
+        siteLocale={data.site.siteMetadata.siteLocale}
+        twitterUsername={data.site.siteMetadata.twitterUsername}
+        author={data.site.siteMetadata.author}
+        publishedDate={data.site.siteMetadata.lastBuildDate}
+        modifiedDate={new Date(Date.now()).toISOString()}
+      />
       {/* <Heading mt="5rem" color="#fff" textAlign="center"> */}
       <Heading
         mt="5rem"
@@ -222,14 +246,14 @@ const Develop = () => {
 
             {/* 第一行 */}
             <Flex justifyContent="space-between" mt="3rem">
-              <VideoDialog data={data.allStrapiVideos.nodes[0]} />
-              <VideoDialog data={data.allStrapiVideos.nodes[1]} />
+              <VideoDialog data={data.allStrapiDeveloperVideos.nodes[0]} />
+              <VideoDialog data={data.allStrapiDeveloperVideos.nodes[1]} />
             </Flex>
 
             {/* 第二行 */}
             <Flex justifyContent="space-between" mt="3rem">
-              <VideoDialog data={data.allStrapiVideos.nodes[2]} />
-              <VideoDialog data={data.allStrapiVideos.nodes[3]} />
+              <VideoDialog data={data.allStrapiDeveloperVideos.nodes[2]} />
+              <VideoDialog data={data.allStrapiDeveloperVideos.nodes[3]} />
             </Flex>
           </Box>
         </Flex>
@@ -405,19 +429,19 @@ const Develop = () => {
 
 
           <Box mt="2rem">
-              <VideoDialog data={data.allStrapiVideos.nodes[0]} />
+              <VideoDialog data={data.allStrapiDeveloperVideos.nodes[0]} />
             </Box>
 
             <Box mt="2rem">
-              <VideoDialog data={data.allStrapiVideos.nodes[1]} />
+              <VideoDialog data={data.allStrapiDeveloperVideos.nodes[1]} />
             </Box>
 
             <Box mt="2rem">
-              <VideoDialog data={data.allStrapiVideos.nodes[2]} />
+              <VideoDialog data={data.allStrapiDeveloperVideos.nodes[2]} />
             </Box>
 
             <Box mt="2rem">
-              <VideoDialog data={data.allStrapiVideos.nodes[3]} />
+              <VideoDialog data={data.allStrapiDeveloperVideos.nodes[3]} />
             </Box>
         </Box>
       </Box>

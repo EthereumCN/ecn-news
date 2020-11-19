@@ -1,41 +1,56 @@
 import React from "react"
-import {Text,  Box, Heading,Divider } from "@chakra-ui/core"
-import SEO from "../components/seo"
+import {  Box, Heading, Divider } from "@chakra-ui/core"
+import SEO from 'react-seo-component'
 import EachList from "../components/eachList"
-
+import { graphql } from "gatsby"
+import Layout from "../components/layout"
+import Paginate from "../components/Paginate"
 const Category = (props) => {
+  const {siteMetadata} = props.data.site
   return (
-    <Box >
-       <SEO title="技术" />
-      < Box mb="30vh">
-      <Box
-        w="100%"
-        maxW={1080}
-        mx="auto"
-        px="30px"
-        pt={["20px", "20px", "50px", "40px"]}
-        mt="2vw"
-      >
-        <Heading fontSize="2.5rem" fontFamily="NotoSansSC-Regular" color="#fff">
-          活动
-        </Heading>
-        <Text
-          color="#969696"
-          mt="1.2vw"
-          fontWeight={500}
-          fontSize="1.2rem"
-          fontFamily="NotoSansSC-Regular"
+    <Layout>
+      <SEO
+        title="活动"
+        titleTemplate={siteMetadata.title}
+        description={siteMetadata.description}
+        image={'https://ethereum.cn'}
+        pathname={'https://ethereum.cn'+props.path}
+        siteLanguage={siteMetadata.siteLanguage}
+        siteLocale={siteMetadata.siteLocale}
+        twitterUsername={siteMetadata.twitterUsername}
+        author={siteMetadata.author}
+        publishedDate={siteMetadata.lastBuildDate}
+        modifiedDate={new Date(Date.now()).toISOString()}
+      />
+
+      <Box mb="30vh">
+        <Box
+          w="100%"
+          maxW={1080}
+          mx="auto"
+      
+          pt={["20px", "20px", "50px", "40px"]}
+          mt="2vw"
         >
-         活动最新技术页面
-        </Text>
+          <Heading
+            fontSize="2.5rem"
+            fontFamily="NotoSansSC-Regular"
+            color="#fff"
+          >
+            活动
+          </Heading>
+          <Divider w="100%"  borderColor="#ddd" mt="1vw" mx="auto" />
+        </Box>
+      
+        {props.data.allStrapiArticles.nodes.map((value, index) => (
+          <EachList value={value} key={index} />
+        ))}
+
+        <Box mt="6rem">
+          <Paginate props={props} />
+        </Box>
       </Box>
-      <Divider w="100%" maxW={1018} borderColor="#ddd" mt="1vw" mx="auto" />
-      {props.data.allStrapiArticles.nodes.map((value, index) => (
-        <EachList value={value} key={index} />
-      ))}
-      </Box>
-  
-    </Box>
+    </Layout>
   )
 }
 
@@ -46,11 +61,12 @@ export const pageQuery = graphql`
     allStrapiArticles(
       skip: $skip
       limit: $limit
-      sort: {fields: publishDate, order: DESC}
+      sort: { fields: publishDate, order: DESC }
       filter: { mainTag: { eq: "Activity" } }
     ) {
       nodes {
         id
+        path
         title
         author
         summary
@@ -69,6 +85,18 @@ export const pageQuery = graphql`
             }
           }
         }
+      }
+    }
+    site {
+      siteMetadata {
+        title
+        description
+        author
+        keywords
+        siteLanguage
+        siteLocale
+        siteUrl
+        twitterUsername
       }
     }
   }

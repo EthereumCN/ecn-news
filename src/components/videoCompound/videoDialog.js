@@ -7,9 +7,8 @@ import DialogTitle from "@material-ui/core/DialogTitle"
 import Paper from "@material-ui/core/Paper"
 import Draggable from "react-draggable"
 import BackgroundImage from "gatsby-background-image"
-import Img from "gatsby-image"
 import videoModule from "../videoCompound/video.module.css"
-// import { AiOutlinePlayCircle } from "react-icons/ai";
+import { motion } from "framer-motion"
 
 function PaperComponent(props) {
   return (
@@ -33,6 +32,9 @@ const VideoDialog = ({ data }) => {
     setOpen(false)
   }
 
+  // 1. Create a custom motion component from Box
+  const MotionBox = motion.custom(Box)
+
   return (
     <div>
       <PseudoBox
@@ -41,7 +43,6 @@ const VideoDialog = ({ data }) => {
         mt=""
         _hover={{ color: " #6873e5" }}
         onClick={handleClickOpen}
-        
       >
         <BackgroundImage
           Tag="section"
@@ -51,45 +52,60 @@ const VideoDialog = ({ data }) => {
           backgroundColor={`#fff`}
         >
           <Box
-           position="relative"
-            height="100%"
-            px={["5vw", 0, 0, 0]}
             style={{
               background:
-                "linear-gradient(rgba(38, 37, 90, 0) 0%, rgba(38, 37, 90, 0.8) 100%)",
+              "linear-gradient(rgba(38, 37, 90, 0) 0%, rgba(38, 37, 90, 0.8) 100%)"
             }}
+            height="100%"
             w="100%"
           >
-            {/* <AiOutlinePlayCircle style={{color:"white", fontSize:"5rem",position:"absolute",left:"1vw",bottom:"12vh"}}/> */}
-            <i class="iconfont icon-iconset0481" style={{color:"white", fontSize:"5rem",position:"absolute",left:"1.5vw",bottom:"12vh"}} ></i>
-            <Text
-             bottom="3vh"
-             left="2vw"
-              position="absolute"
-              w={["100%", "100%","40vw","40vw"]}
-              color="#aaa"
-              fontWeight="700"
-              fontSize="0.5rem"
-              lineHeight="1.3rem"
+            <MotionBox
+              whileHover={{ scale: 0.97 }}
+              position="relative"
+              height="100%"
+              px={["5vw", 0, 0, 0]}
+              w="100%"
             >
-              {data.date}
-            </Text>
+              {/* <AiOutlinePlayCircle style={{color:"white", fontSize:"5rem",position:"absolute",left:"1vw",bottom:"12vh"}}/> */}
+              <i
+                class="iconfont icon-iconset0481"
+                style={{
+                  color: "white",
+                  fontSize: "5rem",
+                  position: "absolute",
+                  left: "1.5vw",
+                  bottom: "12vh",
+                }}
+              ></i>
+              <Text
+                bottom="3vh"
+                left="2vw"
+                position="absolute"
+                w={["100%", "100%", "40vw", "40vw"]}
+                color="#aaa"
+                fontWeight="700"
+                fontSize="0.5rem"
+                lineHeight="1.3rem"
+              >
+                {data.date}
+              </Text>
 
-            <PseudoBox
-             bottom="5vh"
-             left="2vw"
-              position="absolute"
-              _hover={{ color: " #6873e5" }}
-              mb="12px"
-              fontWeight="900"
-              fontFamily="NotoSansSC-Medium"
-              color="#fff"
-              cursor="pointer"
-            >
-              <Heading mb="12px" fontSize="1.3rem" mt={"1.2rem"}>
-                {data.title}
-              </Heading>
-            </PseudoBox>
+              <PseudoBox
+                bottom="5vh"
+                left="2vw"
+                position="absolute"
+                _hover={{ color: " #6873e5" }}
+                mb="12px"
+                fontWeight="900"
+                fontFamily="NotoSansSC-Medium"
+                color="#fff"
+                cursor="pointer"
+              >
+                <Heading mb="12px" fontSize="1.3rem" mt={"1.2rem"}>
+                  {data.title}
+                </Heading>
+              </PseudoBox>
+            </MotionBox>
           </Box>
         </BackgroundImage>
       </PseudoBox>

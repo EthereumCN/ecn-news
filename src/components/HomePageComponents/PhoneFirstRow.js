@@ -31,10 +31,10 @@ const PhoneFirstRow = () => {
     <Box mt="4rem" color="white">
       <Link to={"/" + news.id}>
         {/* 最新tag     */}
-        <Heading as="h2" fontSize="0.9rem" color="#ff2e00">
+        <Heading as="h2" fontSize="0.9rem" color="#ee771c">
           最新
         </Heading>
-        <PseudoBox cursor="pointer" _hover={{ color: " #ff2e00 " }}>
+        <PseudoBox cursor="pointer" _hover={{ color: " #ee771c " }}>
           {/* title */}
           <Heading as="h1" size="xl" pt="0.1rem">
             {news.title}

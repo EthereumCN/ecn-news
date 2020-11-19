@@ -1,32 +1,32 @@
 import React from "react"
-import { Heading, Box, Flex } from "@chakra-ui/core"
+import {   Flex ,PseudoBox,Box} from "@chakra-ui/core"
 import Eachrowitem from "./Eachrowitem"
 import { Link } from "gatsby"
+import eachRow from './eachRow.module.css'
+import hovStyle from '../hover.module.css'
+
+
 const Eachrow = ({ data, rowName }) => {
   return (
     <>
-      <Box textAlign="center" mt={["2rem", "2rem", "2rem", "5rem"]}>
-        <Link to={data[0].mainTag}>
-          <Heading
-            color="#fff"
-            borderBottom="8px solid #ff2e00"
-            display="inline-block"
-            lineHeight="90%"
-            px="0.2rem"
-            mb="2rem"
-            fontSize="1.8rem"
+      <Flex  mt={["2rem", "2rem", "2rem", "3rem"]} className={eachRow.rowsp} alignItems="center" textAlign="center" gridColumn="1 / -1" >
+        <Link to={data[0].mainTag} >
+          <PseudoBox
+            className={hovStyle.ccc}
           >
             {rowName}
-          </Heading>
+          </PseudoBox>
         </Link>
-      </Box>
+      </Flex>
       <Flex
         flexWrap="wrap"
         mt="4rem"
-        paddingX={["0rem", "0rem", "0rem", "10rem"]}
+        justifyContent="space-between"
       >
         <Eachrowitem data={data[0]} />
+        <Box w="2.2vw"/>
         <Eachrowitem data={data[1]} />
+        <Box  w="2.2vw"/>
         <Eachrowitem data={data[2]} />
       </Flex>
     </>

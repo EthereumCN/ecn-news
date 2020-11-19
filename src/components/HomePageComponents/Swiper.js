@@ -28,7 +28,7 @@ const Swipers = () => {
   return (
 
     <>
-     <Heading textAlign="center" fontSize="2rem" backgroundColor="#161a1f" color="#fff" pb="2rem">Express</Heading>
+     <Heading textAlign="center" fontSize="2rem" backgroundColor="#161a1f" color="#fff" pb="2rem">ΞXPRΞSS</Heading>
     <Swiper
       spaceBetween={30}
       slidesPerView={1}
@@ -39,7 +39,7 @@ const Swipers = () => {
       {nodes.map((body, index) => {
         return (
           <SwiperSlide key={index}>
-            <Box color="#fff" minH="100%" h="145px" textAlign="center" px="4rem">
+            <Box  minH="100%" h="145px" textAlign="center" px="5rem">
               <Text fontSize="1.2rem">{body.body}</Text>
             </Box>
           </SwiperSlide>

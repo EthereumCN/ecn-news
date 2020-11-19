@@ -6,7 +6,7 @@ import { Link } from "gatsby"
 const Item = ({ data,order }) => {
   return (
     <Link to={data.id}>  
-    <PseudoBox color="white" cursor="pointer" _hover={{ color: " #ff2e00 " }} h="100%" >
+    <PseudoBox color="white" cursor="pointer" _hover={{ color: " #ee771c " }} h="100%" >
       <Flex justifyContent="space-between" minH="100%" alignItems="center">
         <Box w="100%" alignSelf={order}> 
 
@@ -18,7 +18,7 @@ const Item = ({ data,order }) => {
             color="#000"
             borderRadius="2rem"
             paddingX="0.5rem"
-            backgroundColor="#ff2e00"
+            backgroundColor="#ee771c"
             display="inline-box"
           >
             {data.mainTag}
