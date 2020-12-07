@@ -22,7 +22,7 @@ function PaperComponent(props) {
   )
 }
 
-const EcoSystemBox = ({ data }) => {
+const EcoSystemBox = ({ data,index }) => {
   // 1. Create a custom motion component from Box
   const MotionBox = motion.custom(Box)
 
@@ -38,9 +38,10 @@ const EcoSystemBox = ({ data }) => {
   }
 
   return (
-    <Box mt="2rem" marginX="2rem">
-      <PseudoBox opacity="0.9" _hover={{ opacity: "1",boxShadow:"rgba(31, 41, 79, 0.11) 0px 2px 4px 0px"}}>
+    <>
       <MotionBox
+        justifySelf="center"
+       opacity="0.9" _hover={{ opacity: "1",boxShadow:"rgba(31, 41, 79, 0.11) 0px 2px 4px 0px"}}
         borderRadius="10px"
         w="264px"
         h="320px"
@@ -94,7 +95,6 @@ const EcoSystemBox = ({ data }) => {
           </Heading>
         </PseudoBox>
       </MotionBox>
-    </PseudoBox>
       {/* 隐藏的弹窗 */}
       <Dialog
         open={open}
@@ -118,7 +118,7 @@ const EcoSystemBox = ({ data }) => {
           </DialogContentText>
         </DialogContent>
       </Dialog>
-    </Box>
+    </>
   )
 }
 

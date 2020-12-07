@@ -1,29 +1,31 @@
 import React from "react"
-import { Flex, Box, Heading,  PseudoBox } from "@chakra-ui/core"
-import SEO from 'react-seo-component'
-import buttom from "../components/buttom.module.css"
+import { Flex, Box, Heading, PseudoBox, Grid, Text } from "@chakra-ui/core"
+import SEO from "react-seo-component"
+import buttom from "../components/css/buttom.module.css"
 import Layout from "../components/layout"
 import { useStaticQuery, graphql } from "gatsby"
+import { FcFilmReel } from "react-icons/fc";
 // 引入video
-import VideoDialog from "../components/videoCompound/videoDevelopPage"
+import EachVideo from "../components/videoCompound/eachVideo"
+import videoDealogModule from "../components/videoCompound/videoDialog.module.css"
+import videoDevelop from "../components/css/develop_video.module.css"
+import { FcFinePrint } from "react-icons/fc"
 // 底部
 import Footer from "../components/FooterComponents/Footer"
 
-const Develop = () => {
-
-
-
+const Developer = () => {
   const data = useStaticQuery(graphql`
     {
       allStrapiDeveloperVideos(limit: 4, sort: { fields: date, order: DESC }) {
         nodes {
           date
           title
+          author
           videoSource
           cover {
             childImageSharp {
               fluid(maxWidth: 2000, quality: 100) {
-                ...GatsbyImageSharpFluid
+                src
               }
             }
           }
@@ -46,12 +48,12 @@ const Develop = () => {
 
   return (
     <Layout>
-    <SEO
+      <SEO
         title="开发者门户"
         titleTemplate={data.site.siteMetadata.title}
         description={data.site.siteMetadata.description}
-        image={'https://ethereum.cn'}
-        pathname={'https://ethereum.cn/develop'}
+        image={"https://ethereum.cn"}
+        pathname={"https://ethereum.cn/develop"}
         siteLanguage={data.site.siteMetadata.siteLanguage}
         siteLocale={data.site.siteMetadata.siteLocale}
         twitterUsername={data.site.siteMetadata.twitterUsername}
@@ -59,396 +61,288 @@ const Develop = () => {
         publishedDate={data.site.siteMetadata.lastBuildDate}
         modifiedDate={new Date(Date.now()).toISOString()}
       />
-      {/* <Heading mt="5rem" color="#fff" textAlign="center"> */}
-      <Heading
-        mt="5rem"
-        color="#fff"
-        textAlign="center"
-        textShadow="#db4500 1px 0 10px"
-      >
-        开发者门户
-      </Heading>
 
       {/* pc */}
-      <Box display={["none", "none", "inline", "inline"]}>
-        <Flex  paddingX="3rem" mt="7rem" justifyContent="space-between">
-          {/* 左侧 */}
-          <Box w="27%">
-            {/* 标题 */}
-            <div className={buttom.filterActive}>
-              <Heading>文档</Heading>
-            </div>
+      <Box mt="5rem">
+        <Grid
+          boxShadow="rgba(0, 0, 0, 0.15) 0px 8px 17px"
+          templateColumns={["repeat(1, 1fr)","repeat(1, 1fr)","repeat(3, 1fr)","repeat(3, 1fr)"]}
+          gap="6rem"
+          mt="5rem"
+        >
+          {/* 第一栏 */}
+          <Box
+            color="#fff"
+            className={videoDevelop.shadow}
+          backgroundColor="#212938"
+          >
+            <Box padding="2rem">
+              📑
+              <Heading
+                m="2rem 0 1.45rem"
+                lineHeight="1.1"
+                fontWeight="500"
+                fontSize="1.38316rem"
+              >
+                开发手册
+              </Heading>
+              <Text opacity="0.8" m="0 0 1.45rem">
+                一个适合区块链新手的以太坊DApp开发教程
+              </Text>
+              <PseudoBox
+                href="www.baidu.com"
+                _hover={{ bg: "rgba(238,119,28,0.8)" }}
+                backgroundColor="#ee771c"
+                as="a"
+                display="block"
+                fontSize="1rem"
+                whiteSpace="nowrap"
+                p="0.5rem 0.75rem"
+                borderRadius="0.25em"
+                fontSize="1rem"
+                border="1px solid transparent"
+                textAlign="center"
+              >
+                阅读文档
+              </PseudoBox>
+            </Box>
+          </Box>
+          {/* 第二栏 */}
+          <Box
+            color="#fff"
+            className={videoDevelop.shadow}
+          backgroundColor="#212938"
+          >
+            <Box padding="2rem">
+            🔮
+              <Heading
+                m="2rem 0 1.45rem"
+                lineHeight="1.1"
+                fontWeight="500"
+                fontSize="1.38316rem"
+              >
+                Solidity
+              </Heading>
+              <Text opacity="0.8" m="0 0 1.45rem">
+                一个适合区块链新手的以太坊DApp开发教程
+              </Text>
+              <PseudoBox
+                href="www.baidu.com"
+                _hover={{ bg: "rgba(238,119,28,0.8)" }}
+                backgroundColor="#ee771c"
+                as="a"
+                display="block"
+                fontSize="1rem"
+                whiteSpace="nowrap"
+                p="0.5rem 0.75rem"
+                borderRadius="0.25em"
+                fontSize="1rem"
+                border="1px solid transparent"
+                textAlign="center"
+              >
+                阅读文档
+              </PseudoBox>
+            </Box>
+          </Box>
+          {/* 第三栏、 */}
+          <Box
+            color="#fff"
+            className={videoDevelop.shadow}
+          backgroundColor="#212938"
+          >
+            <Box padding="2rem">
+            💕
+              <Heading
+                m="2rem 0 1.45rem"
+                lineHeight="1.1"
+                fontWeight="500"
+                fontSize="1.38316rem"
+              >
+                EIP/ERC
+              </Heading>
+              <Text opacity="0.8" m="0 0 1.45rem">
+                一个适合区块链新手的以太坊DApp开发教程
+              </Text>
+              <PseudoBox
+                href="www.baidu.com"
+                _hover={{ bg: "rgba(238,119,28,0.8)" }}
+                backgroundColor="#ee771c"
+                as="a"
+                display="block"
+                fontSize="1rem"
+                whiteSpace="nowrap"
+                p="0.5rem 0.75rem"
+                borderRadius="0.25em"
+                fontSize="1rem"
+                border="1px solid transparent"
+                textAlign="center"
+              >
+                阅读文档
+              </PseudoBox>
+            </Box>
+          </Box>
+        </Grid>
 
-            <Flex flexDirection="column" w="280px" mt="7rem">
-              {/* 第一行 */}
 
-              <PseudoBox
-                paddingX="1rem"
-                display="inline"
-                borderRadius=".5rem"
-                margin="0 .5rem 3rem"
-                cursor="pointer"
-                background="linear-gradient(145deg,hsla(240,2%,40%,.15) 15%,rgba(33,33,33,.4) 80%);"
-                boxShadow="-4px -3px 2px 0 hsla(0,0%,98%,.13), 4px 4px 2px 0 rgba(0,0,0,.4);"
-                color="#fff"
-                _active={{
-                  background:
-                    "linear-gradient(145deg,hsl(240deg 4% 50% / 22%) 15%,rgba(33,33,33,.4) 80%)",
-                  boxShadow:
-                    "1px 1px 2px 0 hsla(0,0%,82%,.4), -1px -1px 2px rgba(0,0,0,.4), inset 3px 3px 2px 0 rgba(0,0,0,.4), inset -1px -2px 2px hsla(0,0%,82%,.4)",
-                  color: "#ff073a",
-                }}
+        {/* 第二大栏 */}
+        <Grid
+          boxShadow="rgba(0, 0, 0, 0.15) 0px 8px 17px"
+          templateColumns={["repeat(1, 1fr)","repeat(1, 1fr)","repeat(3, 1fr)","repeat(3, 1fr)"]}
+          gap="6rem"
+          mt="5rem"
+        >
+          {/* 第一栏 */}
+          <Box
+            color="#fff"
+            className={videoDevelop.shadow}
+          backgroundColor="#212938"
+          >
+            <Box padding="2rem">
+              📑
+              <Heading
+                m="2rem 0 1.45rem"
+                lineHeight="1.1"
+                fontWeight="500"
+                fontSize="1.38316rem"
               >
-                <Heading fontSize="2rem" display="inline-block">
-                  <i
-                    style={{
-                      color: "#ff6f00",
-                      fontSize: "1.5rem",
-                      marginRight: "10px",
-                    }}
-                    class="iconfont icon-user1"
-                  ></i>
-                  键就码林高手
-                </Heading>
-              </PseudoBox>
-              {/* 第二行 */}
+                开发手册
+              </Heading>
+              <Text opacity="0.8" m="0 0 1.45rem">
+                一个适合区块链新手的以太坊DApp开发教程
+              </Text>
               <PseudoBox
-                paddingX="1rem"
-                display="inline-block"
-                borderRadius=".5rem"
-                margin="0 .5rem 3rem"
-                cursor="pointer"
-                background="linear-gradient(145deg,hsla(240,2%,40%,.15) 15%,rgba(33,33,33,.4) 80%)"
-                boxShadow="-4px -3px 2px 0 hsla(0,0%,98%,.13), 4px 4px 2px 0 rgba(0,0,0,.4)"
-                color="#fff"
-                _active={{
-                  background:
-                    "linear-gradient(150deg,hsla(0,0%,8%,.4) 10%,hsla(0,0%,45%,.15) 80%)",
-                  boxShadow:
-                    "1px 1px 2px 0 hsla(0,0%,82%,.4), -1px -1px 2px rgba(0,0,0,.4), inset 3px 3px 2px 0 rgba(0,0,0,.4), inset -1px -2px 2px hsla(0,0%,82%,.4)",
-                  color: "#ff073a",
-                }}
+                href="www.baidu.com"
+                _hover={{ bg: "rgba(238,119,28,0.8)" }}
+                backgroundColor="#ee771c"
+                as="a"
+                display="block"
+                fontSize="1rem"
+                whiteSpace="nowrap"
+                p="0.5rem 0.75rem"
+                borderRadius="0.25em"
+                fontSize="1rem"
+                border="1px solid transparent"
+                textAlign="center"
               >
-                <Heading fontSize="2rem">
-                  <i
-                    style={{
-                      color: "#ff6f00",
-                      fontSize: "1.5rem",
-                      marginLeft: "0.1rem",
-                      marginRight: "20px",
-                    }}
-                    class="iconfont icon-l-developer"
-                  ></i>
-                  开发者手册
-                </Heading>
+                阅读文档
               </PseudoBox>
-              {/* 第三行 */}
+            </Box>
+          </Box>
+          {/* 第二栏 */}
+          <Box
+            color="#fff"
+            className={videoDevelop.shadow}
+          backgroundColor="#212938"
+          >
+            <Box padding="2rem">
+              📑
+              <Heading
+                m="2rem 0 1.45rem"
+                lineHeight="1.1"
+                fontWeight="500"
+                fontSize="1.38316rem"
+              >
+                开发手册
+              </Heading>
+              <Text opacity="0.8" m="0 0 1.45rem">
+                一个适合区块链新手的以太坊DApp开发教程
+              </Text>
               <PseudoBox
-                paddingX="1rem"
-                display="inline-block"
-                borderRadius=".5rem"
-                margin="0 .5rem 3rem"
-                cursor="pointer"
-                background="linear-gradient(145deg,hsla(240,2%,40%,.15) 15%,rgba(33,33,33,.4) 80%)"
-                boxShadow="-4px -3px 2px 0 hsla(0,0%,98%,.13), 4px 4px 2px 0 rgba(0,0,0,.4)"
-                color="#fff"
-                _active={{
-                  background:
-                    "linear-gradient(150deg,hsla(0,0%,8%,.4) 10%,hsla(0,0%,45%,.15) 80%)",
-                  boxShadow:
-                    "1px 1px 2px 0 hsla(0,0%,82%,.4), -1px -1px 2px rgba(0,0,0,.4), inset 3px 3px 2px 0 rgba(0,0,0,.4), inset -1px -2px 2px hsla(0,0%,82%,.4)",
-                  color: "#ff073a",
-                }}
+                href="www.baidu.com"
+                _hover={{ bg: "rgba(238,119,28,0.8)" }}
+                backgroundColor="#ee771c"
+                as="a"
+                display="block"
+                fontSize="1rem"
+                whiteSpace="nowrap"
+                p="0.5rem 0.75rem"
+                borderRadius="0.25em"
+                fontSize="1rem"
+                border="1px solid transparent"
+                textAlign="center"
               >
-                <Heading fontSize="2rem">
-                  <i
-                    style={{
-                      color: "#ff6f00",
-                      fontSize: "1.5rem",
-                      marginLeft: "0.1rem",
-                      marginRight: "20px",
-                    }}
-                    class="iconfont icon-editor2"
-                  ></i>
-                  开发者工具{" "}
-                </Heading>
+                阅读文档
               </PseudoBox>
-              {/* 第四行 */}
+            </Box>
+          </Box>
+          {/* 第三栏、 */}
+          <Box
+            color="#fff"
+            className={videoDevelop.shadow}
+          backgroundColor="#212938"
+          >
+            <Box padding="2rem">
+              📑
+              <Heading
+                m="2rem 0 1.45rem"
+                lineHeight="1.1"
+                fontWeight="500"
+                fontSize="1.38316rem"
+              >
+                开发手册
+              </Heading>
+              <Text opacity="0.8" m="0 0 1.45rem">
+                一个适合区块链新手的以太坊DApp开发教程
+              </Text>
               <PseudoBox
-                paddingX="1rem"
-                display="inline-block"
-                borderRadius=".5rem"
-                margin="0 .5rem 3rem"
-                cursor="pointer"
-                background="linear-gradient(145deg,hsla(240,2%,40%,.15) 15%,rgba(33,33,33,.4) 80%)"
-                boxShadow="-4px -3px 2px 0 hsla(0,0%,98%,.13), 4px 4px 2px 0 rgba(0,0,0,.4)"
-                color="#fff"
-                _active={{
-                  background:
-                    "linear-gradient(150deg,hsla(0,0%,8%,.4) 10%,hsla(0,0%,45%,.15) 80%)",
-                  boxShadow:
-                    "1px 1px 2px 0 hsla(0,0%,82%,.4), -1px -1px 2px rgba(0,0,0,.4), inset 3px 3px 2px 0 rgba(0,0,0,.4), inset -1px -2px 2px hsla(0,0%,82%,.4)",
-                  color: "#ff073a",
-                }}
+                href="www.baidu.com"
+                _hover={{ bg: "rgba(238,119,28,0.8)" }}
+                backgroundColor="#ee771c"
+                as="a"
+                display="block"
+                fontSize="1rem"
+                whiteSpace="nowrap"
+                p="0.5rem 0.75rem"
+                borderRadius="0.25em"
+                fontSize="1rem"
+                border="1px solid transparent"
+                textAlign="center"
               >
-                <Heading fontSize="2rem">
-                  <i
-                    style={{
-                      color: "#ff6f00",
-                      fontSize: "1.5rem",
-                      marginLeft: "0.1rem",
-                      marginRight: "20px",
-                    }}
-                    class="iconfont icon-14"
-                  ></i>
-                  开发者论坛{" "}
-                </Heading>
+                阅读文档
               </PseudoBox>
-              {/* 第五行 */}
-              <PseudoBox
-                paddingX="1rem"
-                display="inline-block"
-                borderRadius=".5rem"
-                margin="0 .5rem 3rem"
-                cursor="pointer"
-                background="linear-gradient(145deg,hsla(240,2%,40%,.15) 15%,rgba(33,33,33,.4) 80%)"
-                boxShadow="-4px -3px 2px 0 hsla(0,0%,98%,.13), 4px 4px 2px 0 rgba(0,0,0,.4)"
-                color="#fff"
-                _active={{
-                  background:
-                    "linear-gradient(150deg,hsla(0,0%,8%,.4) 10%,hsla(0,0%,45%,.15) 80%)",
-                  boxShadow:
-                    "1px 1px 2px 0 hsla(0,0%,82%,.4), -1px -1px 2px rgba(0,0,0,.4), inset 3px 3px 2px 0 rgba(0,0,0,.4), inset -1px -2px 2px hsla(0,0%,82%,.4)",
-                  color: "#ff073a",
-                }}
-              >
-                <Heading fontSize="2rem">
-                  <i
-                    style={{
-                      color: "#ff6f00",
-                      fontSize: "1.5rem",
-                      marginLeft: "0.1rem",
-                      marginRight: "20px",
-                    }}
-                    class="iconfont icon-ziliaoshouce-xianxing"
-                  ></i>
-                  开发者规范{" "}
-                </Heading>
-              </PseudoBox>
-            </Flex>
+            </Box>
+          </Box>
+        </Grid>
+
+
+
+{/* 视频 */}
+<Box mx="5vw" mt="8rem">
+            <Heading color="#fff">
+           <FcFilmReel style={{display:"inline"}}/>
+              <Box
+                ml="1rem"
+                padding="0.5rem"
+                borderRadius="50%"
+                backgroundColor="#ff5000"
+                display="inline-box"
+              />{" "}
+              <Box
+                padding="0.5rem"
+                borderRadius="50%"
+                backgroundColor="#ff5000"
+                display="inline-box"
+              />
+            </Heading>
           </Box>
 
-          {/* 右侧 */}
-          <Box w={["50%","50%","50%","70%"]}>
-            <div className={buttom.filterActive}>
-              <Heading>视频</Heading>
-            </div>
+  <Box mt="12vh">
+              <Box className={videoDevelop.featured}>
+                <EachVideo data={data.allStrapiDeveloperVideos.nodes[0]} />
+                <EachVideo data={data.allStrapiDeveloperVideos.nodes[1]} />
+                <EachVideo data={data.allStrapiDeveloperVideos.nodes[2]} />
+                <EachVideo data={data.allStrapiDeveloperVideos.nodes[3]} />
+              </Box>
+            </Box>
 
-            {/* 第一行 */}
-            <Flex justifyContent="space-between" mt="3rem">
-              <VideoDialog data={data.allStrapiDeveloperVideos.nodes[0]} />
-              <VideoDialog data={data.allStrapiDeveloperVideos.nodes[1]} />
-            </Flex>
-
-            {/* 第二行 */}
-            <Flex justifyContent="space-between" mt="3rem">
-              <VideoDialog data={data.allStrapiDeveloperVideos.nodes[2]} />
-              <VideoDialog data={data.allStrapiDeveloperVideos.nodes[3]} />
-            </Flex>
-          </Box>
-        </Flex>
       </Box>
 
       {/* Mobil */}
-      <Box display={["inline", "inline", "none", "none"]}>
-        {/* 文档 */}
-        <Box mt="5rem" paddingX="2rem">
-          <div className={buttom.filterActive}>
-            <Heading>文档</Heading>
-          </div>
-
-          <Flex flexDirection="column" w="280px" mt="3rem">
-            {/* 第一行 */}
-            <PseudoBox
-              paddingX="1rem"
-              display="inline"
-              borderRadius=".5rem"
-              margin="0 .5rem 3rem"
-              cursor="pointer"
-              background="linear-gradient(145deg,hsla(240,2%,40%,.15) 15%,rgba(33,33,33,.4) 80%);"
-              boxShadow="-4px -3px 2px 0 hsla(0,0%,98%,.13), 4px 4px 2px 0 rgba(0,0,0,.4);"
-              color="#fff"
-              _active={{
-                background:
-                  "linear-gradient(145deg,hsl(240deg 4% 50% / 22%) 15%,rgba(33,33,33,.4) 80%)",
-                boxShadow:
-                  "1px 1px 2px 0 hsla(0,0%,82%,.4), -1px -1px 2px rgba(0,0,0,.4), inset 3px 3px 2px 0 rgba(0,0,0,.4), inset -1px -2px 2px hsla(0,0%,82%,.4)",
-                color: "#ff073a",
-              }}
-            >
-              <Heading fontSize="2rem" display="inline-block">
-                <i
-                  style={{
-                    color: "#ff6f00",
-                    fontSize: "1.5rem",
-                    marginRight: "10px",
-                  }}
-                  class="iconfont icon-user1"
-                ></i>
-                键就码林高手
-              </Heading>
-            </PseudoBox>
-            {/* 第二行 */}
-            <PseudoBox
-              paddingX="1rem"
-              display="inline-block"
-              borderRadius=".5rem"
-              margin="0 .5rem 3rem"
-              cursor="pointer"
-              background="linear-gradient(145deg,hsla(240,2%,40%,.15) 15%,rgba(33,33,33,.4) 80%)"
-              boxShadow="-4px -3px 2px 0 hsla(0,0%,98%,.13), 4px 4px 2px 0 rgba(0,0,0,.4)"
-              color="#fff"
-              _active={{
-                background:
-                  "linear-gradient(150deg,hsla(0,0%,8%,.4) 10%,hsla(0,0%,45%,.15) 80%)",
-                boxShadow:
-                  "1px 1px 2px 0 hsla(0,0%,82%,.4), -1px -1px 2px rgba(0,0,0,.4), inset 3px 3px 2px 0 rgba(0,0,0,.4), inset -1px -2px 2px hsla(0,0%,82%,.4)",
-                color: "#ff073a",
-              }}
-            >
-              <Heading fontSize="2rem">
-                <i
-                  style={{
-                    color: "#ff6f00",
-                    fontSize: "1.5rem",
-                    marginLeft: "0.1rem",
-                    marginRight: "20px",
-                  }}
-                  class="iconfont icon-l-developer"
-                ></i>
-                开发者手册
-              </Heading>
-            </PseudoBox>
-            {/* 第三行 */}
-            <PseudoBox
-              paddingX="1rem"
-              display="inline-block"
-              borderRadius=".5rem"
-              margin="0 .5rem 3rem"
-              cursor="pointer"
-              background="linear-gradient(145deg,hsla(240,2%,40%,.15) 15%,rgba(33,33,33,.4) 80%)"
-              boxShadow="-4px -3px 2px 0 hsla(0,0%,98%,.13), 4px 4px 2px 0 rgba(0,0,0,.4)"
-              color="#fff"
-              _active={{
-                background:
-                  "linear-gradient(150deg,hsla(0,0%,8%,.4) 10%,hsla(0,0%,45%,.15) 80%)",
-                boxShadow:
-                  "1px 1px 2px 0 hsla(0,0%,82%,.4), -1px -1px 2px rgba(0,0,0,.4), inset 3px 3px 2px 0 rgba(0,0,0,.4), inset -1px -2px 2px hsla(0,0%,82%,.4)",
-                color: "#ff073a",
-              }}
-            >
-              <Heading fontSize="2rem">
-                <i
-                  style={{
-                    color: "#ff6f00",
-                    fontSize: "1.5rem",
-                    marginLeft: "20px",
-                  }}
-                  class="iconfont icon-editor2"
-                ></i>
-                开发者工具{" "}
-              </Heading>
-            </PseudoBox>
-            {/* 第四行 */}
-            <PseudoBox
-              paddingX="1rem"
-              display="inline-block"
-              borderRadius=".5rem"
-              margin="0 .5rem 3rem"
-              cursor="pointer"
-              background="linear-gradient(145deg,hsla(240,2%,40%,.15) 15%,rgba(33,33,33,.4) 80%)"
-              boxShadow="-4px -3px 2px 0 hsla(0,0%,98%,.13), 4px 4px 2px 0 rgba(0,0,0,.4)"
-              color="#fff"
-              _active={{
-                background:
-                  "linear-gradient(150deg,hsla(0,0%,8%,.4) 10%,hsla(0,0%,45%,.15) 80%)",
-                boxShadow:
-                  "1px 1px 2px 0 hsla(0,0%,82%,.4), -1px -1px 2px rgba(0,0,0,.4), inset 3px 3px 2px 0 rgba(0,0,0,.4), inset -1px -2px 2px hsla(0,0%,82%,.4)",
-                color: "#ff073a",
-              }}
-            >
-              <Heading fontSize="2rem">
-                <i
-                  style={{
-                    color: "#ff6f00",
-                    fontSize: "1.5rem",
-                    marginLeft: "20px",
-                  }}
-                  class="iconfont icon-14"
-                ></i>
-                开发者论坛{" "}
-              </Heading>
-            </PseudoBox>
-            {/* 第五行 */}
-            <PseudoBox
-              paddingX="1rem"
-              display="inline-block"
-              borderRadius=".5rem"
-              margin="0 .5rem 3rem"
-              cursor="pointer"
-              background="linear-gradient(145deg,hsla(240,2%,40%,.15) 15%,rgba(33,33,33,.4) 80%)"
-              boxShadow="-4px -3px 2px 0 hsla(0,0%,98%,.13), 4px 4px 2px 0 rgba(0,0,0,.4)"
-              color="#fff"
-              _active={{
-                background:
-                  "linear-gradient(150deg,hsla(0,0%,8%,.4) 10%,hsla(0,0%,45%,.15) 80%)",
-                boxShadow:
-                  "1px 1px 2px 0 hsla(0,0%,82%,.4), -1px -1px 2px rgba(0,0,0,.4), inset 3px 3px 2px 0 rgba(0,0,0,.4), inset -1px -2px 2px hsla(0,0%,82%,.4)",
-                color: "#ff073a",
-              }}
-            >
-              <Heading fontSize="2rem">
-                <i
-                  style={{
-                    color: "#ff6f00",
-                    fontSize: "1.5rem",
-                    marginLeft: "20px",
-                  }}
-                  class="iconfont icon-ziliaoshouce-xianxing"
-                ></i>
-                开发者规范{" "}
-              </Heading>
-            </PseudoBox>
-          </Flex>
-        </Box>
-
-        <Box mt="3rem" paddingX="2rem">
-          <div className={buttom.filterActive}>
-            <Heading>视频</Heading>
-          </div>
-
-
-          <Box mt="2rem">
-              <VideoDialog data={data.allStrapiDeveloperVideos.nodes[0]} />
-            </Box>
-
-            <Box mt="2rem">
-              <VideoDialog data={data.allStrapiDeveloperVideos.nodes[1]} />
-            </Box>
-
-            <Box mt="2rem">
-              <VideoDialog data={data.allStrapiDeveloperVideos.nodes[2]} />
-            </Box>
-
-            <Box mt="2rem">
-              <VideoDialog data={data.allStrapiDeveloperVideos.nodes[3]} />
-            </Box>
-        </Box>
-      </Box>
+      <Box display={["inline", "inline", "none", "none"]}></Box>
 
       <Footer />
     </Layout>
   )
 }
 
-export default Develop
+export default Developer

@@ -1,7 +1,7 @@
 import React from "react"
 import addToMailchimp from "gatsby-plugin-mailchimp"
-import { Input, Button, Box } from "@chakra-ui/core"
-
+import { Input, Button, Box, Text, Link } from "@chakra-ui/core"
+import { GiRss } from "react-icons/gi"
 export default class MyGatsbyComponent extends React.Component {
   // Since `addToMailchimp` returns a promise, you
   // can handle the response in two different ways:
@@ -36,8 +36,10 @@ export default class MyGatsbyComponent extends React.Component {
             justifyContent: "center",
           }}
         >
+          <label>
           <Input
             border="0"
+            backgroundColor="rgba(225,225,225,0.3)"
             display="inline-block"
             w="300px"
             label="Email"
@@ -48,6 +50,7 @@ export default class MyGatsbyComponent extends React.Component {
             autoComplete="email"
             onChange={this.handleChange}
           />
+          </label>
           <Box display="flex" flexDir="column">
             {/* <Button
             ml="0.8rem"

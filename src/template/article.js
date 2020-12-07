@@ -1,36 +1,27 @@
 import React from "react"
-import {  graphql } from "gatsby"
-import SEO from 'react-seo-component'
-import {
-  Box,
-  Heading,
-  Stack,
-  Avatar,
-  Text,
-  Divider
-} from "@chakra-ui/core"
+import { graphql } from "gatsby"
+import SEO from "react-seo-component"
+import { Box, Heading, Stack, Avatar, Text, Divider } from "@chakra-ui/core"
 
 import Layout from "../components/layout"
 // 底部
 import Footer from "../components/FooterComponents/Footer"
 
-
 const ReactMarkdown = require("react-markdown")
 
-const Article = ({location, data }) => {
+const Article = ({ location, data }) => {
   const post = data.strapiArticles
-  const {siteMetadata} = data.site
+  const { siteMetadata } = data.site
   return (
     <Layout>
-
-
-
       <SEO
         title={post.title}
         titleTemplate={siteMetadata.title}
         description={post.summary}
-        image={'https://ecnn.netlify.app'+post.cover.childImageSharp.resize.src}
-        pathname={'https://ecnn.netlify.app'+location.pathname}
+        image={
+          "https://ecnn.netlify.app" + post.cover.childImageSharp.resize.src
+        }
+        pathname={"https://ecnn.netlify.app" + location.pathname}
         article={true}
         siteLanguage={siteMetadata.siteLanguage}
         siteLocale={siteMetadata.siteLocale}
@@ -75,16 +66,29 @@ const Article = ({location, data }) => {
             name={post.author}
             src={post.authorImg.childImageSharp.fixed.src}
           />
-          <Text lineHeight="25px" fontSize="0.8rem" color="#fff" cursor="pointer">
-           {post.author}
+          <Text
+            lineHeight="25px"
+            fontSize="0.8rem"
+            color="#fff"
+            cursor="pointer"
+          >
+            {post.author}
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            {post.publishDate}
           </Text>
         </Stack>
 
-        <ReactMarkdown source={post.content} className="content" escapeHtml={false}/>
-
+        <ReactMarkdown
+          source={post.content}
+          className="content"
+          escapeHtml={false}
+        />
 
         <Divider />
-          <Footer/>
+        <Footer />
       </Box>
     </Layout>
   )

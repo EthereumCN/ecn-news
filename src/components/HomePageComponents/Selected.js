@@ -46,15 +46,15 @@ const Selected = () => {
     >
       {/* {console.log(nodes)} */}
       {/* 第一栏 */}
-      <Box h="30%">
+      <Box h="31%">
         <Item data={nodes[0]} order="flex-start" />
       </Box>
       {/* 第二栏 */}
-      <Box h="40%" borderY="1px solid gray">
+      <Box h="38%" borderY="1px solid gray">
         <Item data={nodes[1]} order="auto" />
       </Box>
       {/* 第三栏 */}
-      <Box h="30%">
+      <Box h="31%">
         <Item data={nodes[2]} order="flex-end" />
       </Box>
     </PseudoBox>

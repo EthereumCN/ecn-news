@@ -20,7 +20,8 @@ import { Link } from "gatsby"
 import { FiChevronDown, FiChevronUp } from "react-icons/fi"
 import Search from "../search"
 import Stat from "./Stat"
-import StatModule from './Stat.module.css'
+import StatModule from "./Stat.module.css"
+import GasFee from "./GasFee"
 
 
 const searchIndices = [{ name: `Pages`, title: `Pages` }]
@@ -88,9 +89,10 @@ const Header = () => {
                     cursor="pointer"
                     color="#fff"
                     lineHeight="4rem"
-                    fontFamily="MengNaHeiTi"
+                    fontFamily="'Noto Sans SC', sans-serif"
+                    fontWeight="500"
                   >
-                    <Link to="/">新聞資訊</Link>
+                    <Link to="/" >新闻资讯</Link>
                   </PseudoBox>
                 </PseudoBox>
 
@@ -145,11 +147,11 @@ const Header = () => {
                               display="inline"
                               textAlign="center"
                               w="100%"
-                              fontFamily="MengNaHeiTi"
-                              fontSize="0.8rem"
+                              fontSize="1rem"
+                              fontFamily="'Noto Sans SC', sans-serif"
                             >
                               {" "}
-                              <Link to="/Ether2">ETH 2.0</Link>
+                              <Link to="/Ether2" >ETH 2.0</Link>
                             </PseudoBox>
                           </MenuItem>
 
@@ -163,11 +165,11 @@ const Header = () => {
                               display="inline"
                               textAlign="center"
                               w="100%"
-                              fontFamily="MengNaHeiTi"
-                              fontSize="0.8rem"
+                              fontSize="1rem"
+                              fontFamily="'Noto Sans SC', sans-serif"
                             >
                               {" "}
-                              <Link to="/Technology">技術</Link>
+                              <Link to="/Technology" >技术</Link>
                             </PseudoBox>
                           </MenuItem>
                           <MenuItem
@@ -180,11 +182,11 @@ const Header = () => {
                               display="inline"
                               textAlign="center"
                               w="100%"
-                              fontFamily="MengNaHeiTi"
-                              fontSize="0.8rem"
+                              fontSize="1rem"
+                              fontFamily="'Noto Sans SC', sans-serif"
                             >
                               {" "}
-                              <Link to="/Staking">Staking</Link>
+                              <Link to="/Staking" >Staking</Link>
                             </PseudoBox>
                           </MenuItem>
                           <MenuItem
@@ -197,10 +199,10 @@ const Header = () => {
                               display="inline"
                               textAlign="center"
                               w="100%"
-                              fontFamily="MengNaHeiTi"
-                              fontSize="0.8rem"
+                              fontSize="1rem"
+                              fontFamily="'Noto Sans SC', sans-serif"
                             >
-                              <Link to="/DeFi">DeFi</Link>
+                              <Link to="/DeFi" >DeFi</Link>
                             </PseudoBox>
                           </MenuItem>
                           <MenuItem
@@ -213,10 +215,10 @@ const Header = () => {
                               display="inline"
                               textAlign="center"
                               w="100%"
-                              fontFamily="MengNaHeiTi"
-                              fontSize="0.8rem"
+                              fontSize="1rem"
+                              fontFamily="'Noto Sans SC', sans-serif"
                             >
-                              <Link to="/Ether1">ETH 1.X</Link>
+                              <Link to="/Ether1" >ETH 1.X</Link>
                             </PseudoBox>
                           </MenuItem>
                           <MenuItem
@@ -229,10 +231,10 @@ const Header = () => {
                               display="inline"
                               textAlign="center"
                               w="100%"
-                              fontFamily="MengNaHeiTi"
-                              fontSize="0.8rem"
+                              fontSize="1rem"
+                              fontFamily="'Noto Sans SC', sans-serif"
                             >
-                              <Link to="/Ecosystem">生態</Link>
+                              <Link to="/Ecosystem" >生态</Link>
                             </PseudoBox>
                           </MenuItem>
                           <MenuItem
@@ -245,10 +247,10 @@ const Header = () => {
                               display="inline"
                               textAlign="center"
                               w="100%"
-                              fontFamily="MengNaHeiTi"
-                              fontSize="0.8rem"
+                              fontSize="1rem"
+                              fontFamily="'Noto Sans SC', sans-serif"
                             >
-                              <Link to="/Thinking">思辨</Link>
+                              <Link to="/Thinking" >思辨</Link>
                             </PseudoBox>
                           </MenuItem>
                           <MenuItem
@@ -261,10 +263,10 @@ const Header = () => {
                               display="inline"
                               textAlign="center"
                               w="100%"
-                              fontFamily="MengNaHeiTi"
-                              fontSize="0.8rem"
+                              fontSize="1rem"
+                              fontFamily="'Noto Sans SC', sans-serif"
                             >
-                              <Link to="/Announcement">通告</Link>
+                              <Link to="/Announcement" >通告</Link>
                             </PseudoBox>
                           </MenuItem>
                           <MenuItem
@@ -277,11 +279,12 @@ const Header = () => {
                               display="inline"
                               textAlign="center"
                               w="100%"
-                              fontFamily="MengNaHeiTi"
-                              fontSize="0.8rem"
+                              fontSize="1rem"
+                              fontFamily="'Noto Sans SC', sans-serif"
+                             
                             >
                               {" "}
-                              <Link to="/Activity">活動</Link>
+                              <Link to="/Activity" >活动</Link>
                             </PseudoBox>
                           </MenuItem>
                         </MenuList>
@@ -300,10 +303,11 @@ const Header = () => {
                     fontSize="1.2rem"
                     cursor="pointer"
                     color="#fff"
-                    fontFamily="MengNaHeiTi"
                     lineHeight="4rem"
+                    fontFamily="'Noto Sans SC', sans-serif"
+                    fontWeight="500"
                   >
-                    <Link to="/c0llege">零時学院</Link>
+                    <Link to="/c0llege" >零时学院</Link>
                   </PseudoBox>
                 </PseudoBox>
 
@@ -317,10 +321,11 @@ const Header = () => {
                     fontSize="1.2rem"
                     cursor="pointer"
                     color="#fff"
-                    fontFamily="MengNaHeiTi"
                     lineHeight="4rem"
+                    fontFamily="'Noto Sans SC', sans-serif"
+                    fontWeight="500"
                   >
-                    <Link to="/develop">開发者门户</Link>
+                    <Link to="/develop" >开发者门户</Link>
                   </PseudoBox>
                 </PseudoBox>
 
@@ -334,10 +339,11 @@ const Header = () => {
                     fontSize="1.2rem"
                     cursor="pointer"
                     color="#fff"
-                    fontFamily="MengNaHeiTi"
                     lineHeight="4rem"
+                    fontFamily="'Noto Sans SC', sans-serif"
+                    fontWeight="500"
                   >
-                    <Link to="/ecos">生態漫遊</Link>
+                    <Link to="/ecos" >生态漫游</Link>
                   </PseudoBox>
                 </PseudoBox>
               </ul>
@@ -359,6 +365,8 @@ const Header = () => {
             Ξ
           </PseudoBox>
         </Flex>
+
+      
         {/* 🔍搜索 */}
         <Flex className={StatModule.box}>
           <Stat />
@@ -374,20 +382,6 @@ const Header = () => {
 
       {/* header右侧 */}
       <Box>
-        {/* phone nav-bar */}
-        {/* <PseudoBox
-          display={["inline", "inline", "inline", "none"]}
-          _hover={{ color: "#ee771c" }}
-          fontSize="1rem"
-          cursor="pointer"
-          mr="2rem"
-          ref={btnRef}
-          variantColor="teal"
-          onClick={onOpen}
-          color="#fff"
-        >
-          Ξ
-        </PseudoBox> */}
         <>
           <Drawer
             isOpen={isOpen}
@@ -407,7 +401,7 @@ const Header = () => {
                     textAlign="center"
                     py="0.4rem"
                   >
-                    <Link to={item.link}>{item.name}</Link>
+                    <Link to={item.link} >{item.name}</Link>
                   </PseudoBox>
                 ))}
               </DrawerBody>
@@ -415,6 +409,8 @@ const Header = () => {
           </Drawer>
         </>
       </Box>
+
+     <GasFee/>
     </Box>
   )
 }

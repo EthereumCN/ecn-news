@@ -1,5 +1,5 @@
 import React from "react"
-import "./layout.css"
+import "../components/css/layout.css"
 import Header from "./HeaderComponents/Header"
 import { Box } from "@chakra-ui/core"
 

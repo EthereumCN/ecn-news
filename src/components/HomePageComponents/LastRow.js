@@ -121,7 +121,7 @@ const LastRow = () => {
         <Link to={Thinking[0].mainTag}>
           {/* tag     */}
           <Heading
-            as="h7"
+            as="h6"
             fontSize="1rem"
             fontWeight="900"
             color="#ee771c"
@@ -131,7 +131,7 @@ const LastRow = () => {
             fontFamily="Roboto-Black"
           >
             {/* <FcIdea style={{ marginRight: "0.5rem" }} /> */}
-            💡 &nbsp; 思辨
+            <section> 💡 &nbsp; 思辨</section>
           </Heading>
         </Link>
         {/* title */}
@@ -161,7 +161,7 @@ const LastRow = () => {
         <Link to={Announcement[0].mainTag}>
           {/* tag     */}
           <Heading
-            as="h7"
+            as="h6"
             fontSize="1rem"
             color="#ee771c"
             borderRadius="2rem"
@@ -170,7 +170,7 @@ const LastRow = () => {
             mb="1rem"
           >
             {/* <FcConferenceCall style={{ marginRight: "0.5rem" }} /> */}
-            📢 &nbsp; 通告
+            <section> 📢 &nbsp; 通告</section>
           </Heading>
         </Link>
         {/* title */}
@@ -200,7 +200,7 @@ const LastRow = () => {
         <Link to={Activity[0].mainTag}>
           {/* tag     */}
           <Heading
-            as="h7"
+            as="h6"
             fontSize="1rem"
             color="#ee771c"
             borderRadius="2rem"

@@ -351,7 +351,7 @@ const Index = ( ) => {
       {/* pc端 */}
       <Box display={["none", "none", "inline", "inline"]}>
         {/* 第一栏 */}
-        <Flex mt="6rem" flexWrap="wrap" justifyContent="space-between">
+        <Flex mt="10rem" flexWrap="wrap" justifyContent="space-between">
           <News />
           <Selected />
         </Flex>

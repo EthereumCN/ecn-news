@@ -12,6 +12,8 @@ module.exports = {
     siteLocale: `zh-cn`,
   },
   plugins: [
+    `gatsby-plugin-minify-html`,
+    `gatsby-plugin-brotli`,
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-chakra-ui`,
     `gatsby-plugin-react-helmet`,
@@ -25,10 +27,20 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: 'gatsby-plugin-matomo',
       options: {
-        // The property ID; the tracking code won't be generated without it
-        trackingId: "UA-179253008-1",
+        siteId: '3',
+        matomoUrl: 'https://lichaospace.matomo.cloud/',
+        siteUrl: 'https://lichao.space',
+      }
+    },
+    { 
+      resolve: `gatsby-plugin-baidu-analytics`,
+      options: {
+        // baidu analytics siteId
+        siteId: "6969d6cfa7db5440a61fcb9d73804a3c",
+        // Put analytics script in the head instead of the body [default:false]
+        head: false,
       },
     },
     {
@@ -52,6 +64,7 @@ module.exports = {
           `eco-system-videos`,
           `expresses`,
           `authors`,
+          `trivias`,
         ],
       },
     },
@@ -121,7 +134,7 @@ module.exports = {
         display: `minimal-ui`,
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
-    },
+    },  
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

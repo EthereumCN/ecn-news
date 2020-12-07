@@ -3,7 +3,7 @@ import {   Flex ,PseudoBox,Box} from "@chakra-ui/core"
 import Eachrowitem from "./Eachrowitem"
 import { Link } from "gatsby"
 import eachRow from './eachRow.module.css'
-import hovStyle from '../hover.module.css'
+import hovStyle from '../css/hover.module.css'
 
 
 const Eachrow = ({ data, rowName }) => {

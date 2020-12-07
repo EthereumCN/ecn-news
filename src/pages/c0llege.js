@@ -1,21 +1,14 @@
 import React from "react"
-import {
-  Flex,
-  Box,
-  Heading,
-  Text,
-  Divider,
-} from "@chakra-ui/core"
-import SEO from 'react-seo-component'
+import { Flex, Box, Heading, Text, Divider } from "@chakra-ui/core"
+import SEO from "react-seo-component"
 import { useStaticQuery, graphql } from "gatsby"
 import Layout from "../components/layout"
 // 引入video
-import VideoDialog from "../components/videoCompound/videoDialog"
+import EachVideo from "../components/videoCompound/eachVideo"
+import videoDealogModule from "../components/videoCompound/videoDialog.module.css"
 // 底部
 import Footer from "../components/FooterComponents/Footer"
-
-
-
+import { FcFilmReel } from "react-icons/fc";
 
 
 const C0llege = () => {
@@ -26,10 +19,11 @@ const C0llege = () => {
           date
           title
           videoSource
+          author
           cover {
             childImageSharp {
               fluid(maxWidth: 2000, quality: 100) {
-                ...GatsbyImageSharpFluid
+                src
               }
             }
           }
@@ -47,6 +41,11 @@ const C0llege = () => {
           twitterUsername
         }
       }
+      allStrapiTrivias {
+        nodes {
+          info
+        }
+      }
     }
   `)
 
@@ -56,8 +55,8 @@ const C0llege = () => {
         title="零时学院"
         titleTemplate={data.site.siteMetadata.title}
         description={data.site.siteMetadata.description}
-        image={'https://ethereum.cn'}
-        pathname={'https://ethereum.cn/c0llege'}
+        image={"https://ethereum.cn"}
+        pathname={"https://ethereum.cn/c0llege"}
         siteLanguage={data.site.siteMetadata.siteLanguage}
         siteLocale={data.site.siteMetadata.siteLocale}
         twitterUsername={data.site.siteMetadata.twitterUsername}
@@ -70,12 +69,12 @@ const C0llege = () => {
         零时学院
       </Heading>
       {/* pc端 */}
-      <Box display={["none", "none", "inline", "inline"]}>
-        <Box paddingX="5rem">
+      <Box    display={["none", "none", "inline", "inline"]}>
+        <Box>
           {/* 第一行 */}
-          <Flex justifyContent="space-between" backgroundColor="#111415">
+          <Flex  mx="5vw" justifyContent="space-between" backgroundColor="#111415">
             {/* 左侧栏 */}
-            <Box w="50%" backgroundColor="#191b1c">
+            <Box w="58%" backgroundColor="#191b1c">
               <Heading color="#fff" mb="1rem">
                 简介
               </Heading>
@@ -92,22 +91,24 @@ const C0llege = () => {
                 账户系统，智能合约，释放了区块链前所未有的潜力。
               </Text>
 
+              {/* 下一栏 */}
               <Heading color="#fff" mb="1rem">
-                新闻
+              以太坊&nbsp;2.0
               </Heading>
               <Text color="#fff" mb="1rem">
-                Eth2测试网Medalla在8月15日出现时间同步问题，目前正在逐步恢复网络。请Prysm客户端的节点更新到Alpha.23版本。
+              以太坊下一步的重要网络升级称为 Ethereum 2.0，eth2 或 Serenity，将带来权益证明共识机制 (Proof of Stake)、分片 (Sharding) 等重大改变。
               </Text>
               <Text color="#fff" mb="1rem">
-                DeFi智能合约中锁定的加密货币总值达60亿美元。Eth2测试网Medalla在8月15日出现时间同步问题，目前正在逐步恢复网络。请Prysm客户端的节点更新到Alpha.23版本。
+              以太坊2.0于2020年开始分阶段推进，首先上线的是阶段0 (Phase 0)。
               </Text>
               <Text color="#fff" mb="1rem">
-                去中心化衍生品交易所dYdX计划集成StarkWare的Layer2扩容技术。
+              每个阶段都将从不同方面对以太坊区块链的功能和性能进行优化，以提升网络的扩容性、吞吐量和安全性。根据最新的路线图，理论上以太坊2.0最终的吞吐量将达到10万/秒。
               </Text>
+
             </Box>
 
             {/* 右侧栏 */}
-            <Box w="49%" backgroundColor="#0d0f11">
+            <Box w="40%" backgroundColor="#0d0f11">
               {/* 右侧第一栏 */}
               <Flex justifyContent="space-between" h="50%">
                 {/* 左侧/右侧 */}
@@ -132,8 +133,8 @@ const C0llege = () => {
                   <Heading color="#fff" mb="1rem" textAlign="right">
                     冷知识
                   </Heading>
-                  <Text color="#fff" mb="1rem">
-                    以太坊2.0将从PoW工作量证明机制转向PoS权益证明机制。
+                  <Text color="#fff" mb="1rem" fontSize="1.5vw">
+                    {data.allStrapiTrivias.nodes[0].info}
                   </Text>
                 </Box>
               </Flex>
@@ -145,19 +146,21 @@ const C0llege = () => {
                 color="#fff"
                 position="realative"
               >
-                <Text color="#fff" mb="1rem" mt="1rem">
+                <Text color="#fff" mb=".5rem" mt="1rem">
                   什么是以太坊2.0？
                 </Text>
-                <Text color="#fff" mb="1rem">
+                <Text color="#fff" mb=".5rem">
                   以太坊2.0会带来哪些变化？
                 </Text>
-                <Text color="#fff" mb="1rem">
+                <Text color="#fff" mb=".5rem">
                   以太坊2.0将从PoW工作量证明机制转向PoS权益证明机制。
                 </Text>
-                <Text color="#fff" mb="1rem">
+                <Text color="#fff" mb=".5rem">
                   以太坊2.0和现在的以太坊有什么联系和区别？
                 </Text>
-
+                <Text color="#fff" mb=".5rem">
+                  以太坊2.0和现在的以太坊有什么联系和区别？
+                </Text>
                 <Heading textAlign="right">FAQ</Heading>
               </Box>
             </Box>
@@ -165,9 +168,9 @@ const C0llege = () => {
 
           {/* 第二栏 */}
 
-          <Box mt="8rem">
+          <Box mx="5vw" mt="8rem">
             <Heading color="#fff">
-              视频
+           <FcFilmReel style={{display:"inline"}}/>
               <Box
                 ml="1rem"
                 padding="0.5rem"
@@ -184,19 +187,14 @@ const C0llege = () => {
             </Heading>
           </Box>
 
-          <Box>
-            {/* 第一行 */}
-            <Flex justifyContent="space-between"  mt="3rem">
-              <VideoDialog data={data.allStrapiCollegeVideos.nodes[0]} />
-              <VideoDialog data={data.allStrapiCollegeVideos.nodes[1]} />
-            </Flex>
-
-            {/* 第二行 */}
-            <Flex justifyContent="space-between"  mt="3rem">
-              <VideoDialog data={data.allStrapiCollegeVideos.nodes[2]} />
-              <VideoDialog data={data.allStrapiCollegeVideos.nodes[3]} />
-            </Flex>
-          </Box>
+           <Box mt="2rem" px={["","","4vw","5vw"]} >
+            <Box  className={videoDealogModule.featured}>
+              <EachVideo data={data.allStrapiCollegeVideos.nodes[0]}/>
+              <EachVideo data={data.allStrapiCollegeVideos.nodes[1]} />
+              <EachVideo data={data.allStrapiCollegeVideos.nodes[2]}/>
+              <EachVideo data={data.allStrapiCollegeVideos.nodes[3]}/>
+            </Box>
+            </Box>
         </Box>
       </Box>
 
@@ -219,7 +217,7 @@ const C0llege = () => {
                 Bulerin受到比特币及社区的启发，在2013年末发布了以太坊白皮书《以太坊：下一代加密货币与去中心化应用平台》，并在2014年1月宣布正式启动以太坊项目。
               </Text>
               <Text color="#fff" mb="1rem">
-                不同于比特币的货币丁酉，以太坊听过一系列的重新设计，包括EVM（以太坊虚拟机，
+                不同于比特币，以太坊听过一系列的重新设计，包括EVM（以太坊虚拟机，
                 Etheruem Virtual Machine）,
                 账户系统，智能合约，释放了区块链前所未有的潜力。
               </Text>
@@ -303,29 +301,27 @@ const C0llege = () => {
             </Box>
 
             <Box mt="2rem">
-              <VideoDialog data={data.allStrapiCollegeVideos.nodes[0]} />
+            <EachVideo data={data.allStrapiCollegeVideos.nodes[0]}/>
             </Box>
 
             <Box mt="2rem">
-              <VideoDialog data={data.allStrapiCollegeVideos.nodes[1]} />
+            <EachVideo data={data.allStrapiCollegeVideos.nodes[1]}/>
             </Box>
 
             <Box mt="2rem">
-              <VideoDialog data={data.allStrapiCollegeVideos.nodes[2]} />
+            <EachVideo data={data.allStrapiCollegeVideos.nodes[2]}/>
             </Box>
 
             <Box mt="2rem">
-              <VideoDialog data={data.allStrapiCollegeVideos.nodes[3]} />
+            <EachVideo data={data.allStrapiCollegeVideos.nodes[3]}/>
             </Box>
-
-
           </Box>
         </Box>
       </Box>
 
       {/* 手机端end */}
 
-    <Footer/>
+      <Footer />
     </Layout>
   )
 }

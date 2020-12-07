@@ -8,9 +8,9 @@ const customTheme = {
     ...customColors,
   },
   fonts: {
-    body: "Roboto-Regular, sans-serif",
-    heading: "Roboto-Regular, sans-serif",
-    mono: "Roboto-Regular, sans-serif",
+    body: "Hiragino Sans GB, Microsoft YaHei,sans-serif",
+    heading: "Hiragino Sans GB, Microsoft YaHei,sans-serif",
+    mono: "Hiragino Sans GB, Microsoft YaHei,sans-serif",
   },
   fontSizes: {
     xs: "12px",

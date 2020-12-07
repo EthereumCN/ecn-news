@@ -1,12 +1,19 @@
 import React from "react"
-import { Box, Flex } from "@chakra-ui/core"
+import { Box } from "@chakra-ui/core"
 import { useStaticQuery, graphql } from "gatsby"
-import SEO from 'react-seo-component'
+import SEO from "react-seo-component"
 import Layout from "../components/layout"
 // 底部
 import Footer from "../components/FooterComponents/Footer"
 // 事件栏
 import EcoSystemBox from "../components/ecoSystemBox/ecoSystemBox"
+import gridModule from "../components/css/buttom.module.css"
+
+
+// 引入video
+import EachVideo from "../components/videoCompound/eachVideo"
+import videoDealogModule from "../components/videoCompound/videoDialog.module.css"
+import Hor from "../HorizontalScroller"
 
 const Ecosystem = () => {
   // 获取数据
@@ -26,14 +33,18 @@ const Ecosystem = () => {
           }
         }
       }
-      video: allStrapiEcoSystemVideos(limit: 4, sort: { fields: date, order: DESC }) {
+      video: allStrapiEcoSystemVideos(
+        limit: 7
+        sort: { fields: date, order: DESC }
+      ) {
         nodes {
           date
           title
+          author
           videoSource
           cover {
             childImageSharp {
-              fixed(width: 300, height: 180) {
+              fluid {
                 src
               }
             }
@@ -58,33 +69,57 @@ const Ecosystem = () => {
   return (
     <Box>
       <Layout>
-      <SEO
-        title="生态漫游"
-        titleTemplate={data.site.siteMetadata.title}
-        description={data.site.siteMetadata.description}
-        image={'https://ethereum.cn'}
-        pathname={'https://ethereum.cn/ecos'}
-        siteLanguage={data.site.siteMetadata.siteLanguage}
-        siteLocale={data.site.siteMetadata.siteLocale}
-        twitterUsername={data.site.siteMetadata.twitterUsername}
-        author={data.site.siteMetadata.author}
-        publishedDate={data.site.siteMetadata.lastBuildDate}
-        modifiedDate={new Date(Date.now()).toISOString()}
-      />
+        <SEO
+          title="生态漫游"
+          titleTemplate={data.site.siteMetadata.title}
+          description={data.site.siteMetadata.description}
+          image={"https://ethereum.cn"}
+          pathname={"https://ethereum.cn/ecos"}
+          siteLanguage={data.site.siteMetadata.siteLanguage}
+          siteLocale={data.site.siteMetadata.siteLocale}
+          twitterUsername={data.site.siteMetadata.twitterUsername}
+          author={data.site.siteMetadata.author}
+          publishedDate={data.site.siteMetadata.lastBuildDate}
+          modifiedDate={new Date(Date.now()).toISOString()}
+        />
         {/* pc端 */}
-        <Box display={["none", "none", "inline", "inline"]}>
+        <Box display={["inline", "inline", "inline", "inline"]}>
           {/* 活动 */}
-          <Flex mt="2rem" justifyContent="space-around" flexWrap="wrap">
-            <EcoSystemBox data={data.event.nodes[0]} />
-            <EcoSystemBox data={data.event.nodes[1]} />
-            <EcoSystemBox data={data.event.nodes[2]} />
-            <EcoSystemBox data={data.event.nodes[3]} />
-          </Flex>
+          <Box textAlign="center" mt="15vh" className={gridModule.box}>
+
+            {data.event.nodes.map((item, index) => {
+              return <EcoSystemBox index={index} data={item} />
+            })}
+          </Box>
 
           {/* 走马图 */}
+          <Box mt="10vh" className={gridModule.swip} >
+            <Hor>
+              <Box key={0} w="300px" h="200px">
+                <EachVideo swip={1} data={data.video.nodes[0]} />
+              </Box>
+              <Box ml="2rem" key={1} w="300px" h="200px">
+                <EachVideo swip={1} data={data.video.nodes[1]} />
+              </Box>
+              <Box ml="2rem" key={2} w="300px" h="200px">
+                <EachVideo swip={1} data={data.video.nodes[2]} />
+              </Box>
+              <Box ml="2rem" key={3} w="300px" h="200px">
+                <EachVideo swip={1} data={data.video.nodes[3]} />
+              </Box>
+              <Box ml="2rem" key={4} w="300px" h="200px">
+                <EachVideo swip={1} data={data.video.nodes[4]} />
+              </Box>
+              <Box ml="2rem" key={5} w="300px" h="200px">
+                <EachVideo swip={1} data={data.video.nodes[5]} />
+              </Box>
+              <Box ml="2rem" key={6} w="300px" h="200px">
+                <EachVideo swip={1} data={data.video.nodes[6]} />
+              </Box>
+            </Hor>
+          </Box>
         </Box>
-        {/* 手机端 */}
-        <Box></Box>
+  
       </Layout>
       <Footer />
     </Box>
