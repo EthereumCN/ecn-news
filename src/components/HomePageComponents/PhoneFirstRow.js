@@ -10,6 +10,7 @@ const PhoneFirstRow = () => {
       allStrapiArticles(sort: { order: DESC, fields: publishDate }, limit: 1) {
         nodes {
           id
+          path
           title
           summary
           cover {
@@ -29,7 +30,7 @@ const PhoneFirstRow = () => {
 
   return (
     <Box mt="4rem" color="white">
-      <Link to={"/" + news.id}>
+      <Link to={"/" + news.path}>
         {/* 最新tag     */}
         <Heading as="h2" fontSize="0.9rem" color="#ee771c">
           最新
@@ -47,7 +48,7 @@ const PhoneFirstRow = () => {
       </Link>
       {/* 图片 */}
       <Box pt="1rem">
-        <Link to={"/" + news.id}>
+        <Link to={"/" + news.path}>
           <Img fluid={news.cover.childImageSharp.fluid} />
         </Link>
       </Box>

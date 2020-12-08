@@ -5,7 +5,7 @@ import { Link } from "gatsby"
 // 第一行右侧的三篇文章（组件化）
 const Item = ({ data,order }) => {
   return (
-    <Link to={data.id}>  
+    <Link to={data.path}>  
     <PseudoBox color="white" cursor="pointer" _hover={{ color: " #ee771c " }} h="100%" >
       <Flex justifyContent="space-between" minH="100%" alignItems="center">
         <Box w="100%" alignSelf={order}> 

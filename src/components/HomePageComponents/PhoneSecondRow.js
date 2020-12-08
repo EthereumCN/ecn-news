@@ -14,6 +14,7 @@ const PhoneSecondRow = () => {
       ) {
         nodes {
           id
+          path
           mainTag
           summary
           title
