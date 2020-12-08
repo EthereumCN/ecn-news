@@ -1,9 +1,11 @@
 import React from "react"
-import {  Box, Heading, Divider } from "@chakra-ui/core"
+import {  Box, Heading, Divider, Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink, } from "@chakra-ui/core"
 import SEO from 'react-seo-component'
 import EachList from "../components/eachList"
 import { graphql } from "gatsby"
-
+import { Link } from "gatsby"
 import Layout from "../components/layout"
 import  Paginate from '../components/Paginate'
 
@@ -26,7 +28,10 @@ const Category = props => {
         publishedDate={siteMetadata.lastBuildDate}
         modifiedDate={new Date(Date.now()).toISOString()}
       />
-      <Box mb="30vh">
+
+
+
+      <Box mb="30vh" >
         <Box
           w="100%"
           maxW={1080}
@@ -35,6 +40,18 @@ const Category = props => {
           pt={["20px", "20px", "50px", "40px"]}
           mt="2vw"
         >
+
+  {/* Breadcrumb */}
+  <Breadcrumb color="#fff" mt="4rem" mb="2rem">
+        <BreadcrumbItem>
+          <BreadcrumbLink as={Link} to="/">首页</BreadcrumbLink>
+        </BreadcrumbItem>
+
+        <BreadcrumbItem isCurrentPage>
+          <BreadcrumbLink as={Link} to="#">ETH2.0</BreadcrumbLink>
+        </BreadcrumbItem>
+      </Breadcrumb>
+
           <Heading
             fontSize="2.5rem"
             fontFamily="NotoSansSC-Regular"

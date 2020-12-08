@@ -1,13 +1,20 @@
 import React from "react"
-import {  Box, Heading, Divider } from "@chakra-ui/core"
-import SEO from 'react-seo-component'
+import {
+  Box,
+  Heading,
+  Divider,
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+} from "@chakra-ui/core"
+import { Link } from "gatsby"
+import SEO from "react-seo-component"
 import EachList from "../components/eachList"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import Paginate from "../components/Paginate"
 const Category = props => {
-
-  const {siteMetadata} = props.data.site
+  const { siteMetadata } = props.data.site
 
   return (
     <Layout>
@@ -15,8 +22,8 @@ const Category = props => {
         title="defi"
         titleTemplate={siteMetadata.title}
         description={siteMetadata.description}
-        image={'https://ethereum.cn'}
-        pathname={'https://ethereum.cn'+props.path}
+        image={"https://ethereum.cn"}
+        pathname={"https://ethereum.cn" + props.path}
         siteLanguage={siteMetadata.siteLanguage}
         siteLocale={siteMetadata.siteLocale}
         twitterUsername={siteMetadata.twitterUsername}
@@ -29,10 +36,23 @@ const Category = props => {
           w="100%"
           maxW={1080}
           mx="auto"
-         
           pt={["20px", "20px", "50px", "40px"]}
           mt="2vw"
         >
+          {/* Breadcrumb */}
+          <Breadcrumb color="#fff" mt="4rem" mb="2rem">
+            <BreadcrumbItem>
+              <BreadcrumbLink as={Link} to="/">
+                首页
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+
+            <BreadcrumbItem isCurrentPage>
+              <BreadcrumbLink as={Link} to="#">
+                活动
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+          </Breadcrumb>
           <Heading
             fontSize="2.5rem"
             fontFamily="NotoSansSC-Regular"
@@ -40,9 +60,8 @@ const Category = props => {
           >
             DEFI
           </Heading>
-          <Divider w="100%"  borderColor="#ddd" mt="1vw" mx="auto" />
+          <Divider w="100%" borderColor="#ddd" mt="1vw" mx="auto" />
         </Box>
-       
 
         {props.data.allStrapiArticles.nodes.map((value, index) => (
           <EachList value={value} key={index} />
