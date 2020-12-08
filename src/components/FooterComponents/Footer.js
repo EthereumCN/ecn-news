@@ -349,6 +349,25 @@ const Footer = () => {
             />
           </Link>
 
+
+          <Link
+            aria-label="bilibili"
+            ml="1rem"
+            mt="1rem"
+            href="https://space.bilibili.com/477283031"
+            color="#fff"
+            isExternal
+            display="inline-block"
+          >
+            <RiBilibiliFill
+              style={{
+                color: "#ee771c",
+                display: "inline",
+                marginBottom: "0.4rem",
+              }}
+            />
+          </Link>
+
           <Link
             aria-label="Rss"
             ml="1rem"
