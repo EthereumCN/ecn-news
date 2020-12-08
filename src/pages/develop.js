@@ -1,10 +1,21 @@
 import React from "react"
-import { Flex, Box, Heading, PseudoBox, Grid, Text } from "@chakra-ui/core"
+import {
+  Flex,
+  Box,
+  Heading,
+  PseudoBox,
+  Grid,
+  Text,
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+} from "@chakra-ui/core"
+import { Link } from "gatsby"
 import SEO from "react-seo-component"
 import buttom from "../components/css/buttom.module.css"
 import Layout from "../components/layout"
 import { useStaticQuery, graphql } from "gatsby"
-import { FcFilmReel } from "react-icons/fc";
+import { FcFilmReel } from "react-icons/fc"
 // 引入video
 import EachVideo from "../components/videoCompound/eachVideo"
 import videoDealogModule from "../components/videoCompound/videoDialog.module.css"
@@ -63,18 +74,34 @@ const Developer = () => {
       />
 
       {/* pc */}
-      <Box mt="5rem">
+
+      <Breadcrumb color="#fff" mt="10rem">
+        <BreadcrumbItem>
+          <BreadcrumbLink as={Link} to="/">首页</BreadcrumbLink>
+        </BreadcrumbItem>
+
+        <BreadcrumbItem isCurrentPage>
+          <BreadcrumbLink as={Link} to="#">开发者门户</BreadcrumbLink>
+        </BreadcrumbItem>
+      </Breadcrumb>
+
+      <Box>
         <Grid
           boxShadow="rgba(0, 0, 0, 0.15) 0px 8px 17px"
-          templateColumns={["repeat(1, 1fr)","repeat(1, 1fr)","repeat(3, 1fr)","repeat(3, 1fr)"]}
+          templateColumns={[
+            "repeat(1, 1fr)",
+            "repeat(1, 1fr)",
+            "repeat(3, 1fr)",
+            "repeat(3, 1fr)",
+          ]}
           gap="6rem"
-          mt="5rem"
+          mt="4rem"
         >
           {/* 第一栏 */}
           <Box
             color="#fff"
             className={videoDevelop.shadow}
-          backgroundColor="#212938"
+            backgroundColor="#212938"
           >
             <Box padding="2rem">
               📑
@@ -84,13 +111,14 @@ const Developer = () => {
                 fontWeight="500"
                 fontSize="1.38316rem"
               >
-                开发手册
+                开发者手册
               </Heading>
               <Text opacity="0.8" m="0 0 1.45rem">
-                一个适合区块链新手的以太坊DApp开发教程
+              以太坊开发者入门手册
               </Text>
               <PseudoBox
-                href="www.baidu.com"
+                href="https://knol.ethereum.cn/"
+                target="_blank"
                 _hover={{ bg: "rgba(238,119,28,0.8)" }}
                 backgroundColor="#ee771c"
                 as="a"
@@ -111,10 +139,10 @@ const Developer = () => {
           <Box
             color="#fff"
             className={videoDevelop.shadow}
-          backgroundColor="#212938"
+            backgroundColor="#212938"
           >
             <Box padding="2rem">
-            🔮
+              🔮
               <Heading
                 m="2rem 0 1.45rem"
                 lineHeight="1.1"
@@ -124,10 +152,11 @@ const Developer = () => {
                 Solidity
               </Heading>
               <Text opacity="0.8" m="0 0 1.45rem">
-                一个适合区块链新手的以太坊DApp开发教程
+              以太坊智能合约编程语言
               </Text>
               <PseudoBox
-                href="www.baidu.com"
+                target="_blank"
+                href="https://dev.ethereum.cn/solidity"
                 _hover={{ bg: "rgba(238,119,28,0.8)" }}
                 backgroundColor="#ee771c"
                 as="a"
@@ -148,10 +177,10 @@ const Developer = () => {
           <Box
             color="#fff"
             className={videoDevelop.shadow}
-          backgroundColor="#212938"
+            backgroundColor="#212938"
           >
             <Box padding="2rem">
-            💕
+              💕
               <Heading
                 m="2rem 0 1.45rem"
                 lineHeight="1.1"
@@ -161,10 +190,11 @@ const Developer = () => {
                 EIP/ERC
               </Heading>
               <Text opacity="0.8" m="0 0 1.45rem">
-                一个适合区块链新手的以太坊DApp开发教程
+              以太坊核心协议规范、客户端API和合约标准
               </Text>
               <PseudoBox
-                href="www.baidu.com"
+                target="_blank"
+                href="https://dev.ethereum.cn/eips-1"
                 _hover={{ bg: "rgba(238,119,28,0.8)" }}
                 backgroundColor="#ee771c"
                 as="a"
@@ -183,11 +213,15 @@ const Developer = () => {
           </Box>
         </Grid>
 
-
         {/* 第二大栏 */}
         <Grid
           boxShadow="rgba(0, 0, 0, 0.15) 0px 8px 17px"
-          templateColumns={["repeat(1, 1fr)","repeat(1, 1fr)","repeat(3, 1fr)","repeat(3, 1fr)"]}
+          templateColumns={[
+            "repeat(1, 1fr)",
+            "repeat(1, 1fr)",
+            "repeat(3, 1fr)",
+            "repeat(3, 1fr)",
+          ]}
           gap="6rem"
           mt="5rem"
         >
@@ -195,7 +229,7 @@ const Developer = () => {
           <Box
             color="#fff"
             className={videoDevelop.shadow}
-          backgroundColor="#212938"
+            backgroundColor="#212938"
           >
             <Box padding="2rem">
               📑
@@ -205,13 +239,14 @@ const Developer = () => {
                 fontWeight="500"
                 fontSize="1.38316rem"
               >
-                开发手册
+                APIs
               </Heading>
               <Text opacity="0.8" m="0 0 1.45rem">
-                一个适合区块链新手的以太坊DApp开发教程
+                以太坊前端接口文档
               </Text>
               <PseudoBox
-                href="www.baidu.com"
+                target="_blank"
+                href="https://dev.ethereum.cn/front-end-interfaces"
                 _hover={{ bg: "rgba(238,119,28,0.8)" }}
                 backgroundColor="#ee771c"
                 as="a"
@@ -232,7 +267,7 @@ const Developer = () => {
           <Box
             color="#fff"
             className={videoDevelop.shadow}
-          backgroundColor="#212938"
+            backgroundColor="#212938"
           >
             <Box padding="2rem">
               📑
@@ -242,13 +277,14 @@ const Developer = () => {
                 fontWeight="500"
                 fontSize="1.38316rem"
               >
-                开发手册
+                IDE
               </Heading>
               <Text opacity="0.8" m="0 0 1.45rem">
-                一个适合区块链新手的以太坊DApp开发教程
+                以太坊集合开发环境
               </Text>
               <PseudoBox
-                href="www.baidu.com"
+                target="_blank"
+                href="https://dev.ethereum.cn/ides-editors"
                 _hover={{ bg: "rgba(238,119,28,0.8)" }}
                 backgroundColor="#ee771c"
                 as="a"
@@ -269,7 +305,7 @@ const Developer = () => {
           <Box
             color="#fff"
             className={videoDevelop.shadow}
-          backgroundColor="#212938"
+            backgroundColor="#212938"
           >
             <Box padding="2rem">
               📑
@@ -279,13 +315,14 @@ const Developer = () => {
                 fontWeight="500"
                 fontSize="1.38316rem"
               >
-                开发手册
+                智能合约库
               </Heading>
               <Text opacity="0.8" m="0 0 1.45rem">
-                一个适合区块链新手的以太坊DApp开发教程
+              智能合约库是智能合约的可重复使用代码段
               </Text>
               <PseudoBox
-                href="www.baidu.com"
+                target="_blank"
+                href="https://dev.ethereum.cn/smart-contract-library"
                 _hover={{ bg: "rgba(238,119,28,0.8)" }}
                 backgroundColor="#ee771c"
                 as="a"
@@ -304,37 +341,34 @@ const Developer = () => {
           </Box>
         </Grid>
 
+        {/* 视频 */}
+        <Box mx="5vw" mt="8rem">
+          <Heading color="#fff">
+            <FcFilmReel style={{ display: "inline" }} />
+            <Box
+              ml="1rem"
+              padding="0.5rem"
+              borderRadius="50%"
+              backgroundColor="#ff5000"
+              display="inline-box"
+            />{" "}
+            <Box
+              padding="0.5rem"
+              borderRadius="50%"
+              backgroundColor="#ff5000"
+              display="inline-box"
+            />
+          </Heading>
+        </Box>
 
-
-{/* 视频 */}
-<Box mx="5vw" mt="8rem">
-            <Heading color="#fff">
-           <FcFilmReel style={{display:"inline"}}/>
-              <Box
-                ml="1rem"
-                padding="0.5rem"
-                borderRadius="50%"
-                backgroundColor="#ff5000"
-                display="inline-box"
-              />{" "}
-              <Box
-                padding="0.5rem"
-                borderRadius="50%"
-                backgroundColor="#ff5000"
-                display="inline-box"
-              />
-            </Heading>
+        <Box mt="12vh">
+          <Box className={videoDevelop.featured}>
+            <EachVideo data={data.allStrapiDeveloperVideos.nodes[0]} />
+            <EachVideo data={data.allStrapiDeveloperVideos.nodes[1]} />
+            <EachVideo data={data.allStrapiDeveloperVideos.nodes[2]} />
+            <EachVideo data={data.allStrapiDeveloperVideos.nodes[3]} />
           </Box>
-
-  <Box mt="12vh">
-              <Box className={videoDevelop.featured}>
-                <EachVideo data={data.allStrapiDeveloperVideos.nodes[0]} />
-                <EachVideo data={data.allStrapiDeveloperVideos.nodes[1]} />
-                <EachVideo data={data.allStrapiDeveloperVideos.nodes[2]} />
-                <EachVideo data={data.allStrapiDeveloperVideos.nodes[3]} />
-              </Box>
-            </Box>
-
+        </Box>
       </Box>
 
       {/* Mobil */}

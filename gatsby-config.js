@@ -6,7 +6,7 @@ module.exports = {
     author: `@ECN以太坊社区网络`,
     keywords: `blog, ECN`,
     lastBuildDate: new Date(Date.now()).toISOString(),
-    siteUrl: `https://ecnn.netlify.app/`,
+    siteUrl: `http://ethereum.cn/`,
     twitterUsername: `@EthereumCN`,
     siteLanguage: `zh-CN`,
     siteLocale: `zh-cn`,
@@ -91,8 +91,8 @@ module.exports = {
                 Object.assign({}, edge.node, {
                   description: edge.node.summary,
                   date: edge.node.publishDate,
-                  url: 'https://ecnn.netlify.app/'+ edge.node.path,
-                  guid: 'https://ecnn.netlify.app/'+ edge.node.path,
+                  url: 'http://ethereum.cn/'+ edge.node.path,
+                  guid: 'http://ethereum.cn/'+ edge.node.path,
                   custom_elements: [{ "content:encoded": edge.node.content }],
                 })
               ),

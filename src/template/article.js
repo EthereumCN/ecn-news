@@ -36,7 +36,7 @@ const Article = ({ location, data }) => {
         maxW={800}
         mx="auto"
         px="30px"
-        pt={["20px", "20px", "50px", "10vh"]}
+        pt={["65px", "65px", "70px", "14vh"]}
         mb={["15vh", "15vh", "20vh", "40vh"]}
       >
         <Heading

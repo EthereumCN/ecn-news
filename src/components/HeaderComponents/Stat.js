@@ -63,7 +63,8 @@ const Stats = () => {
     <Stat mt="1.4rem" className={StatModule.onebox}>
       <StatLabel fontSize="1rem">
         {data === 0 ? (
-          <Spinner size="sm" textAlign="left" />
+          // <Spinner size="sm" textAlign="left" />
+          <span/>
         ) : (
           <>
             <PseudoBox as="span" color="#fff">

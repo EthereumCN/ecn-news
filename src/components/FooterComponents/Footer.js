@@ -141,7 +141,7 @@ const Footer = () => {
             _hover={{ color: "#d9d9d9" }}
             ml="1rem"
             mt="1rem"
-            href="https://ecnn.netlify.app/rss.xml"
+            href="http://ethereum.cn/rss.xml"
             color="#1A202C"
             target="_blank"
             display="inline-block"
@@ -272,7 +272,6 @@ const Footer = () => {
 
       <Box w="100%">
         <Img fluid={data.file.childImageSharp.fluid} />
-        {console.log(data)}
       </Box>
 
       <Box className={footer.mobile} textAlign="center">
@@ -354,7 +353,7 @@ const Footer = () => {
             aria-label="Rss"
             ml="1rem"
             mt="1rem"
-            href="https://ecnn.netlify.app/rss.xml"
+            href="http://ethereum.cn/rss.xml"
             color="#fff"
             isExternal
             display="inline-block"

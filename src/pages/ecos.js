@@ -1,5 +1,11 @@
 import React from "react"
-import { Box } from "@chakra-ui/core"
+import {
+  Box,
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+} from "@chakra-ui/core"
+import { Link } from "gatsby"
 import { useStaticQuery, graphql } from "gatsby"
 import SEO from "react-seo-component"
 import Layout from "../components/layout"
@@ -8,7 +14,6 @@ import Footer from "../components/FooterComponents/Footer"
 // 事件栏
 import EcoSystemBox from "../components/ecoSystemBox/ecoSystemBox"
 import gridModule from "../components/css/buttom.module.css"
-
 
 // 引入video
 import EachVideo from "../components/videoCompound/eachVideo"
@@ -83,17 +88,31 @@ const Ecosystem = () => {
           modifiedDate={new Date(Date.now()).toISOString()}
         />
         {/* pc端 */}
-        <Box display={["inline", "inline", "inline", "inline"]}>
-          {/* 活动 */}
-          <Box textAlign="center" mt="15vh" className={gridModule.box}>
+        <Box>
+          {/* Breadcrumb */}
+          <Breadcrumb color="#fff" mt="10rem" mb="3rem">
+            <BreadcrumbItem>
+              <BreadcrumbLink as={Link} to="/">
+                首页
+              </BreadcrumbLink>
+            </BreadcrumbItem>
 
+            <BreadcrumbItem isCurrentPage>
+              <BreadcrumbLink as={Link} to="#">
+                生态漫游
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+          </Breadcrumb>
+
+          {/* 活动 */}
+          <Box textAlign="center" mt="3vh" className={gridModule.box}>
             {data.event.nodes.map((item, index) => {
               return <EcoSystemBox index={index} data={item} />
             })}
           </Box>
 
           {/* 走马图 */}
-          <Box mt="10vh" className={gridModule.swip} >
+          <Box mt="10vh" className={gridModule.swip}>
             <Hor>
               <Box key={0} w="300px" h="200px">
                 <EachVideo swip={1} data={data.video.nodes[0]} />
@@ -119,7 +138,6 @@ const Ecosystem = () => {
             </Hor>
           </Box>
         </Box>
-  
       </Layout>
       <Footer />
     </Box>

@@ -24,7 +24,6 @@ const Paginate = ({props}) => {
         }
       }
   
-      // console.log(i.selected+1 )
     }
 
 

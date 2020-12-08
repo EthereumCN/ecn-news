@@ -3,16 +3,9 @@
     .mobile {
         display: none;
     }
-
-
     .showarea {
         display: none;
     }
-
-    .donate1 {
-        display: none;
-    }
-
 
     .showmail {
         display: none;
@@ -25,13 +18,6 @@
         position: absolute;
         left: 7vw;
         bottom: 17vh
-    }
-
-    .donate1 {
-        position: absolute;
-        left: 7.8vw;
-        bottom: 17vh;
-        z-index: 100;
     }
 
     .showmail {
@@ -51,16 +37,8 @@
     .showarea {
         position: absolute;
         left: 7vw;
-        bottom: 21.5vh
+        bottom: 15vh
     }
-
-    .donate1 {
-        position: absolute;
-        left: 7.8vw;
-        bottom: 17vh;
-        z-index: 100;
-    }
-
 
     .showmail {
         z-index: 100;
@@ -83,18 +61,6 @@
         bottom: 13vh;
     }
 
-    .donate1 {
-        position: absolute;
-        left: 27vw;
-        bottom: 15vh;
-        z-index: 100;
-    }
-
-
-   
-
-
-
     .showmail {
         z-index: 100;
         position: absolute;
@@ -116,17 +82,6 @@
         bottom: 12vh;
     }
 
-    .donate1 {
-        position: absolute;
-        left: 27vw;
-        bottom: 14vh;
-        z-index: 100;
-    }
-
-
-   
-
-
 
     .showmail {
         z-index: 100;
@@ -141,22 +96,31 @@
 }
 
 
-@media screen and (min-width: 1180px) and (max-width: 1349px) {
+
+@media screen and (min-width: 1279px) and (max-width: 1349px) {
     .showarea {
         position: absolute;
         left: 7vw;
-        bottom: 11vh;
+        bottom: 10vh;
     }
 
-    .donate1 {
+
+    .showmail {
+       display: none;
+    }
+
+    .mobile {
+        display: none;
+    }
+}
+
+
+@media screen and (min-width: 1180px) and (max-width: 1278px) {
+    .showarea {
         position: absolute;
-        left: 27vw;
-        bottom: 13vh;
-        z-index: 100;
+        left: 7vw;
+        bottom: 9vh;
     }
-
-
-   
 
 
     .showmail {

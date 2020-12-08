@@ -1,5 +1,8 @@
 import React from "react"
-import { Flex, Box, Heading, Text, Divider } from "@chakra-ui/core"
+import { Flex, Box, Heading, Text, Divider,  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink, } from "@chakra-ui/core"
+  import { Link } from "gatsby"
 import SEO from "react-seo-component"
 import { useStaticQuery, graphql } from "gatsby"
 import Layout from "../components/layout"
@@ -64,15 +67,21 @@ const C0llege = () => {
         publishedDate={data.site.siteMetadata.lastBuildDate}
         modifiedDate={new Date(Date.now()).toISOString()}
       />
-      {/* title */}
-      <Heading mt="5rem" mb="4rem" color="#fff" textAlign="center">
-        零时学院
-      </Heading>
+      {/* Breadcrumb */}
+      <Breadcrumb color="#fff" mt="10rem" mb="3rem">
+        <BreadcrumbItem>
+          <BreadcrumbLink as={Link} to="/">首页</BreadcrumbLink>
+        </BreadcrumbItem>
+
+        <BreadcrumbItem isCurrentPage>
+          <BreadcrumbLink as={Link} to="#">零时学院</BreadcrumbLink>
+        </BreadcrumbItem>
+      </Breadcrumb>
       {/* pc端 */}
-      <Box    display={["none", "none", "inline", "inline"]}>
+      <Box  display={["none", "none", "inline", "inline"]}>
         <Box>
           {/* 第一行 */}
-          <Flex  mx="5vw" justifyContent="space-between" backgroundColor="#111415">
+          <Flex  justifyContent="space-between" backgroundColor="#111415">
             {/* 左侧栏 */}
             <Box w="58%" backgroundColor="#191b1c">
               <Heading color="#fff" mb="1rem">
@@ -117,16 +126,16 @@ const C0llege = () => {
                     目录
                   </Heading>
                   <Text color="#fff" mb="1rem">
-                    Hello 以太坊
+                  <a href="https://knol.ethereum.cn/" target="_blank">Hello 以太坊</a>
                   </Text>
                   <Text color="#fff" mb="1rem">
-                    开发者门户
+                  <a href="https://dev.ethereum.cn/" target="_blank">开发者门户</a>
                   </Text>
                   <Text color="#fff" mb="1rem">
-                    ETH 2.0
+                  <a href="https://eth2.ethereum.cn/">  ETH 2.0 </a>
                   </Text>
                   <Text color="#fff" mb="1rem">
-                    以太坊术语列表
+                  <a href="https://knol.ethereum.cn/glossary">  以太坊术语列表</a>
                   </Text>
                 </Box>
                 <Box w="49%" backgroundColor="#141618">
@@ -224,16 +233,16 @@ const C0llege = () => {
               <Divider />
               {/* 新闻 */}
               <Heading color="#fff" mb="1rem" mt="3rem">
-                新闻
+              以太坊&nbsp;2.0
               </Heading>
               <Text color="#fff" mb="1rem">
-                Eth2测试网Medalla在8月15日出现时间同步问题，目前正在逐步恢复网络。请Prysm客户端的节点更新到Alpha.23版本。
+              以太坊下一步的重要网络升级称为 Ethereum 2.0，eth2 或 Serenity，将带来权益证明共识机制 (Proof of Stake)、分片 (Sharding) 等重大改变。
               </Text>
               <Text color="#fff" mb="1rem">
-                DeFi智能合约中锁定的加密货币总值达60亿美元。
+              以太坊2.0于2020年开始分阶段推进，首先上线的是阶段0 (Phase 0)。
               </Text>
               <Text color="#fff" mb="1rem">
-                去中心化衍生品交易所dYdX计划集成StarkWare的Layer2扩容技术。
+              每个阶段都将从不同方面对以太坊区块链的功能和性能进行优化，以提升网络的扩容性、吞吐量和安全性。根据最新的路线图，理论上以太坊2.0最终的吞吐量将达到10万/秒。
               </Text>
               <Divider />
               {/* 目录 */}
@@ -241,16 +250,16 @@ const C0llege = () => {
                 目录
               </Heading>
               <Text color="#fff" mb="1rem">
-                Hello 以太坊
+                <a href="https://knol.ethereum.cn/" >Hello 以太坊</a>
               </Text>
               <Text color="#fff" mb="1rem">
-                开发者门户
+              <a href="https://dev.ethereum.cn/" target="_blank">  开发者门户</a>
               </Text>
               <Text color="#fff" mb="1rem">
-                ETH 2.0
+              <a href="https://eth2.ethereum.cn/">   ETH 2.0</a>
               </Text>
               <Text color="#fff" mb="1rem">
-                以太坊术语列表
+              <a href="https://knol.ethereum.cn/glossary"> 以太坊术语列表</a>
               </Text>
               <Divider />
               {/* 冷知识 */}
