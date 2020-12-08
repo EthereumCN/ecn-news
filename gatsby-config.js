@@ -26,14 +26,7 @@ module.exports = {
         queries: require("./src/utils/algolia-queries")
       },
     },
-    {
-      resolve: 'gatsby-plugin-matomo',
-      options: {
-        siteId: '3',
-        matomoUrl: 'https://lichaospace.matomo.cloud/',
-        siteUrl: 'https://lichao.space',
-      }
-    },
+  
     { 
       resolve: `gatsby-plugin-baidu-analytics`,
       options: {

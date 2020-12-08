@@ -26,7 +26,6 @@
     "gatsby-plugin-feed": "^2.6.0",
     "gatsby-plugin-mailchimp": "^5.2.2",
     "gatsby-plugin-manifest": "^2.4.14",
-    "gatsby-plugin-matomo": "^0.8.3",
     "gatsby-plugin-minify-html": "^1.0.4",
     "gatsby-plugin-offline": "^3.2.13",
     "gatsby-plugin-react-helmet": "^3.3.6",
