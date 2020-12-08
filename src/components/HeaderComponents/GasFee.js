@@ -96,7 +96,7 @@ const GasFee = () => {
             </PseudoBox>
       &nbsp;
       <>
-        Gas: {data === 0 ? <Spinner size="sm" /> :<span style={{color:"rgba(238,119,28,0.65)"}}>{data}  Gwei</span>}
+        Gas:&nbsp; {data === 0 ? <Spinner size="sm" /> :<span style={{color:"rgba(238,119,28,0.65)"}}>{data}  Gwei</span>}
       </>
 
       <Epoch />
