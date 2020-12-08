@@ -84,8 +84,8 @@ module.exports = {
                 Object.assign({}, edge.node, {
                   description: edge.node.summary,
                   date: edge.node.publishDate,
-                  url: 'http://ethereum.cn/'+ edge.node.path,
-                  guid: 'http://ethereum.cn/'+ edge.node.path,
+                  url: 'https://news.ethereum.cn/'+ edge.node.path,
+                  guid: 'https://news.ethereum.cn/'+ edge.node.path,
                   custom_elements: [{ "content:encoded": edge.node.content }],
                 })
               ),

@@ -141,7 +141,7 @@ const Footer = () => {
             _hover={{ color: "#d9d9d9" }}
             ml="1rem"
             mt="1rem"
-            href="http://ethereum.cn/rss.xml"
+            href="https://news.ethereum.cn/rss.xml"
             color="#1A202C"
             target="_blank"
             display="inline-block"
@@ -275,7 +275,6 @@ const Footer = () => {
       </Box>
 
       <Box className={footer.mobile} textAlign="center">
-        {/* rss */}
         <Text color="white" paddingBottom="1rem">
           <Link
             aria-label="Weibo"
@@ -372,7 +371,7 @@ const Footer = () => {
             aria-label="Rss"
             ml="1rem"
             mt="1rem"
-            href="http://ethereum.cn/rss.xml"
+            href="https://news.ethereum.cn/rss.xml"
             color="#fff"
             isExternal
             display="inline-block"
