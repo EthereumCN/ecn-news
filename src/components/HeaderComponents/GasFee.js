@@ -81,16 +81,18 @@ const GasFee = () => {
               >
                 ETH
               </PseudoBox>{" "}
-              &nbsp; ${data2.usd} &nbsp;
+              &nbsp; $
+              {data2 === 0 ?  <Spinner size="sm"/>  : <> {data2.usd} &nbsp; </> }
+              
+             
               <StatArrow
                 type={rate >= 0 ? "increase" : "decrease"}
                 fontSize="0.5rem"
               />{" "}
               <>
-                {rate + "%"} &nbsp; &nbsp;&nbsp;
-                {/* Gas: */}
-                {/* {data2 === 0 ? <Spinner size="sm" /> : data2 + " " + "Gwei"} */}
-              </>{" "}
+
+              {data2 === 0 ?  <Spinner size="sm"/>  : <> {rate + "%"} &nbsp; &nbsp;&nbsp;</> } 
+              </>
             </PseudoBox>
       &nbsp;
       <>
