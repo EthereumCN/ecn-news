@@ -37,7 +37,7 @@ const Article = ({ location, data }) => {
         mx="auto"
         px="30px"
         pt={["65px", "65px", "70px", "14vh"]}
-        mb={["15vh", "15vh", "20vh", "40vh"]}
+        mb={["10vh", "10vh", "15vh", "20vh"]}
       >
         <Heading
           lineHeight="7vh"
@@ -88,8 +88,8 @@ const Article = ({ location, data }) => {
         />
 
         <Divider />
-        <Footer />
       </Box>
+      <Footer />
     </Layout>
   )
 }
