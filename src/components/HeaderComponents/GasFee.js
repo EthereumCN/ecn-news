@@ -38,6 +38,12 @@ const GasFee = () => {
 
 
     const timer = setInterval(() => {
+
+
+      setData(0);
+      setData2(0);
+
+
       const fetchData1 = async () => {
         const result = await axios(
           "https://ethgasstation.info/api/ethgasAPI.json?api-key=cfdb0db15075b2fcda1589258fe706a492009546a0d3380536b2c8d464cb"
@@ -55,7 +61,7 @@ const GasFee = () => {
       }
 
       fetchData2(data)
-    }, 8000)
+    }, 30000)
 
     return () => clearInterval(timer)
   }, [])
