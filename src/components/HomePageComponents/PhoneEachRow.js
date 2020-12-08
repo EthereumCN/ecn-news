@@ -22,7 +22,7 @@ const PhoneEachRow = ({ data }) => {
         <Img fluid={data.cover.childImageSharp.fluid} />
       </PseudoBox>
       {/* 描述 */}
-      <Link to={data.id}>
+      <Link to={data.path}>
         <Box px={["5vw", 0, 0, 0]}>
           <PseudoBox
             _hover={{ color: " #6873e5" }}
