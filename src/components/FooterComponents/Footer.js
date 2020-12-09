@@ -101,7 +101,7 @@ const Footer = () => {
             _hover={{ color: "#d9d9d9" }}
             ml="1rem"
             mt="1rem"
-            href="Mailto:eth@ecn.co"
+            href="Mailto:hello@goedel.ai"
             color="#1A202C"
             target="_blank"
             display="inline-block"
@@ -334,7 +334,7 @@ const Footer = () => {
             aria-label="Email"
             ml="1rem"
             mt="1rem"
-            href="Mailto:eth@ecn.co"
+            href="Mailto:hello@goedel.ai"
             color="#fff"
             isExternal
             display="inline-block"
