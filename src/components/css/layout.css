@@ -127,6 +127,18 @@ h6 {
   line-height: 1.5;
 }
 
+
+div button:focus{
+  outline: 0px !important;
+}
+
+
+ /* code{
+  background-color:rgba(242, 242, 242, 1);
+color: black;
+font-size: 1rem !important;
+} */
+
 .content ul {
   margin-left: 1.5vw;
   color: #ddd;

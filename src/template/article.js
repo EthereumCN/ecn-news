@@ -1,17 +1,33 @@
-import React from "react"
+import React  from "react"
 import { graphql } from "gatsby"
 import SEO from "react-seo-component"
 import { Box, Heading, Stack, Avatar, Text, Divider } from "@chakra-ui/core"
-
 import Layout from "../components/layout"
+
+import Zoom from 'react-medium-image-zoom'
+import 'react-medium-image-zoom/dist/styles.css'
+
 // 底部
 import Footer from "../components/FooterComponents/Footer"
 
-const ReactMarkdown = require("react-markdown")
+import ReactMarkdown from "react-markdown";
 
 const Article = ({ location, data }) => {
   const post = data.strapiArticles
   const { siteMetadata } = data.site
+
+  const renderers = {
+    code:  ( {value})  => {
+      return <code style={{color: "pink"}}>{value} </code>
+    },
+    image: ( {src,alt})  => {
+      return <Box textAlign="center" ><Zoom>{console.log(src)}<img src={src} alt={alt}/></Zoom></Box>
+    },
+  }
+
+
+ 
+
   return (
     <Layout>
       <SEO
@@ -73,19 +89,18 @@ const Article = ({ location, data }) => {
             cursor="pointer"
           >
             {post.author}
-            &nbsp;
-            &nbsp;
-            &nbsp;
-            &nbsp;
+            &nbsp; &nbsp; &nbsp; &nbsp;
             {post.publishDate}
           </Text>
         </Stack>
-
-        <ReactMarkdown
-          source={post.content}
-          className="content"
-          escapeHtml={false}
-        />
+ 
+          <ReactMarkdown
+            renderers={renderers}
+            source={post.content}
+            className="content"
+            escapeHtml={false}
+          />
+    
 
         <Divider />
       </Box>
