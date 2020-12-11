@@ -19,9 +19,9 @@ const Article = ({ location, data }) => {
         titleTemplate={siteMetadata.title}
         description={post.summary}
         image={
-          "https://news.ethereum.cn/" + post.cover.childImageSharp.resize.src
+          "https://news.ethereum.cn" + post.cover.childImageSharp.resize.src
         }
-        pathname={"https://news.ethereum.cn/" + location.pathname}
+        pathname={"https://news.ethereum.cn" + location.pathname}
         article={true}
         siteLanguage={siteMetadata.siteLanguage}
         siteLocale={siteMetadata.siteLocale}

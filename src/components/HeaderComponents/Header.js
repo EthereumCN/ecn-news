@@ -58,7 +58,7 @@ const Header = () => {
       height="4rem"
       top="0rem"
       position="fixed"
-      zIndex="2"
+      zIndex="5"
       backgroundColor="#1A202C"
       left="0"
       pl={["1rem", "1rem", "5rem", "5rem"]}
