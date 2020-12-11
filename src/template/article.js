@@ -3,7 +3,8 @@ import { graphql } from "gatsby"
 import SEO from "react-seo-component"
 import { Box, Heading, Stack, Avatar, Text, Divider } from "@chakra-ui/core"
 import Layout from "../components/layout"
-
+import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter'
+import {twilight} from 'react-syntax-highlighter/dist/esm/styles/prism'
 import Zoom from 'react-medium-image-zoom'
 import 'react-medium-image-zoom/dist/styles.css'
 
@@ -17,12 +18,13 @@ const Article = ({ location, data }) => {
   const { siteMetadata } = data.site
 
   const renderers = {
-    code:  ( {value})  => {
-      return <code style={{color: "pink"}}>{value} </code>
+    code: ({language, value}) => {
+      return <SyntaxHighlighter style={twilight} language={language} children={value} />
     },
     image: ( {src,alt})  => {
       return <Box textAlign="center" ><Zoom>{console.log(src)}<img src={src} alt={alt}/></Zoom></Box>
     },
+    
   }
 
 
