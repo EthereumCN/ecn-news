@@ -901,7 +901,7 @@
 
 "@babel/plugin-transform-typescript@^7.12.1":
   version "7.12.1"
-  resolved "https://registry.npm.taobao.org/@babel/plugin-transform-typescript/download/@babel/plugin-transform-typescript-7.12.1.tgz#d92cc0af504d510e26a754a7dbc2e5c8cd9c7ab4"
+  resolved "https://registry.npm.taobao.org/@babel/plugin-transform-typescript/download/@babel/plugin-transform-typescript-7.12.1.tgz?cache=0&sync_timestamp=1602802164420&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40babel%2Fplugin-transform-typescript%2Fdownload%2F%40babel%2Fplugin-transform-typescript-7.12.1.tgz#d92cc0af504d510e26a754a7dbc2e5c8cd9c7ab4"
   integrity sha1-2SzAr1BNUQ4mp1Sn28LlyM2cerQ=
   dependencies:
     "@babel/helper-create-class-features-plugin" "^7.12.1"
@@ -4220,12 +4220,12 @@ busboy@^0.3.1:
 
 bytes@3.0.0:
   version "3.0.0"
-  resolved "https://registry.npm.taobao.org/bytes/download/bytes-3.0.0.tgz?cache=0&sync_timestamp=1589682741197&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fbytes%2Fdownload%2Fbytes-3.0.0.tgz#d32815404d689699f85a4ea4fa8755dd13a96048"
+  resolved "https://registry.npm.taobao.org/bytes/download/bytes-3.0.0.tgz#d32815404d689699f85a4ea4fa8755dd13a96048"
   integrity sha1-0ygVQE1olpn4Wk6k+odV3ROpYEg=
 
 bytes@3.1.0:
   version "3.1.0"
-  resolved "https://registry.npm.taobao.org/bytes/download/bytes-3.1.0.tgz?cache=0&sync_timestamp=1589682741197&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fbytes%2Fdownload%2Fbytes-3.1.0.tgz#f6cf7933a360e0588fa9fde85651cdc7f805d1f6"
+  resolved "https://registry.npm.taobao.org/bytes/download/bytes-3.1.0.tgz#f6cf7933a360e0588fa9fde85651cdc7f805d1f6"
   integrity sha1-9s95M6Ng4FiPqf3oVlHNx/gF0fY=
 
 cacache@^12.0.2:
@@ -7894,10 +7894,10 @@ gatsby-page-utils@^0.6.0:
     lodash "^4.17.20"
     micromatch "^4.0.2"
 
-gatsby-plugin-algolia@^0.16.1:
-  version "0.16.1"
-  resolved "https://registry.npm.taobao.org/gatsby-plugin-algolia/download/gatsby-plugin-algolia-0.16.1.tgz#088bce3f4702701fa22559c1570448747e5ae2e3"
-  integrity sha1-CIvOP0cCcB+iJVnBVwRIdH5a4uM=
+gatsby-plugin-algolia@^0.13.0:
+  version "0.13.0"
+  resolved "https://registry.npm.taobao.org/gatsby-plugin-algolia/download/gatsby-plugin-algolia-0.13.0.tgz#d73ba83f5a449313356c1897c2d2ecf0d8efa21c"
+  integrity sha1-1zuoP1pEkxM1bBiXwtLs8Njvohw=
   dependencies:
     algoliasearch "^3.24.5"
     gatsby-cli "^1.1.58"
@@ -10929,7 +10929,7 @@ lodash._reinterpolate@^3.0.0:
 
 lodash.camelcase@^4.3.0:
   version "4.3.0"
-  resolved "https://registry.npm.taobao.org/lodash.camelcase/download/lodash.camelcase-4.3.0.tgz?cache=0&sync_timestamp=1599054273650&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Flodash.camelcase%2Fdownload%2Flodash.camelcase-4.3.0.tgz#b28aa6288a2b9fc651035c7711f65ab6190331a6"
+  resolved "https://registry.npm.taobao.org/lodash.camelcase/download/lodash.camelcase-4.3.0.tgz#b28aa6288a2b9fc651035c7711f65ab6190331a6"
   integrity sha1-soqmKIorn8ZRA1x3EfZathkDMaY=
 
 lodash.chunk@^4.2.0:
@@ -12349,7 +12349,7 @@ open@^7.0.3:
 
 opentracing@^0.14.4:
   version "0.14.5"
-  resolved "https://registry.npm.taobao.org/opentracing/download/opentracing-0.14.5.tgz#891fa92cd90a24e64f99bc964370227310926c85"
+  resolved "https://registry.npm.taobao.org/opentracing/download/opentracing-0.14.5.tgz?cache=0&sync_timestamp=1604637327129&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fopentracing%2Fdownload%2Fopentracing-0.14.5.tgz#891fa92cd90a24e64f99bc964370227310926c85"
   integrity sha1-iR+pLNkKJOZPmbyWQ3AicxCSbIU=
 
 opn@5.1.0:
