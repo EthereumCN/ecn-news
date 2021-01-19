@@ -27,7 +27,9 @@ const Footer = () => {
 
   return (
     <Box position="relative" mt="8rem">
+      
       <Box className={footer.showarea} textAlign="right" mt="5rem" zIndex="100">
+        
         {/* rss */}
         <Text
           textAlign="left"
@@ -153,10 +155,11 @@ const Footer = () => {
               }}
             />
           </PseudoBox>
+          
         </Text>
 
         <Box>
-          <Text fontSize="0.5vw" color="#1A202C">
+          <Text fontSize="0.5vw" color="#1A202C" >
             <PseudoBox
               as="a"
               aria-label="Donate"
@@ -217,9 +220,10 @@ const Footer = () => {
               </PseudoBox>
             </span>
           </Text>
+          
         </Box>
       </Box>
-
+  
       {/* <Box className={footer.donate1}>
         <Text fontSize="0.5vw" color="#1A202C">
         <PseudoBox
@@ -272,7 +276,10 @@ const Footer = () => {
 
       <Box w="100%">
         <Img fluid={data.file.childImageSharp.fluid} />
+       
       </Box>
+      
+
 
       <Box className={footer.mobile} textAlign="center">
         <Text color="white" paddingBottom="1rem">
@@ -405,7 +412,7 @@ const Footer = () => {
         </Text>
         <MailchimpForm />
 
-        <Text color="#fff">ECN @2020 </Text>
+        <Text color="#fff">ECN @2020  </Text>
       </Box>
     </Box>
   )
